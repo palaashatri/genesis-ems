@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This project aims at developing an Empolyee Management System which can keep track of all the employees in an organisation.It is a platform where employee can store,edit,update their details and also can regularise their attendance.Their attendance will be monitored regularly by the admin.
+This project aims at developing an Employee Management System which can keep track of all the employees in an organisation. It is a platform where employee can store,edit,update their details and also can regularise their attendance. Their attendance will be monitored regularly by the admin.
 
 ## Research
 
-In olden days,Employee management system in the organization used the ordinary classical methods which are merely based on pen-paper to record the data of their employees.Large number of registers had to be maintained which took more time and effort.It was a tedious process.And then the techniques evolved such as facial recognition,biometric scan and card punching etc.This again is a costly process and requires regular maintenance.The introduction of Web Applications solved all these isssues and also made it easier to manage employees which is cheaper and saves a lot of time and effort too.
+In olden days,Employee management system in the organization used the ordinary classical methods which were merely based on pen-paper to record the data of their employees. Large number of registers had to be maintained which took more time and effort. It was a tedious process. And then the techniques evolved such as facial recognition,biometric scan and card punching etc. This again is a costly process and requires regular maintenance. The introduction of Web Applications solved all these isssues and also made it easier to manage employees which is cheaper and saves a lot of time and effort too.
 
 ## Cost and Features
 
@@ -29,35 +29,39 @@ This includes cost of the PCs and hardware cost required for development of the 
 
 ### Features of Project
 
-·User Secured Login
+- User Secured Login
 
-· Update Employee Details
+- Update Employee Details
 
-· List Employee Details
+- List Employee Details
 
-· Update Employee Attendance
+- Update Employee Attendance
 
-· New Employee Registration
+- New Employee Registration
 
-· List All Employees
+- List All Employees
 
-· Delete Employee
+- Delete Employee
 
-· List Employees from Departments
+- List Employees from Departments
+- List all Departments 
+- Add, Remove & Update Departments
+- View and Regularise Employee attendance 
 
 ## SWOT Analysis
 ### Strengths
-Employee management systems are useful for running a smooth organisation, especially organisations of scale. 
-Admin/Manager/HR personnel can keep track of employee information, attendance records and more.
+- Employee management systems are useful for running a smooth organisation, especially organisations of scale. 
+- Admin/Manager/HR personnel can keep track of employee information, attendance records and more.
 ### Weakness
-Employee management systems are costly, requiring lot of administrative work, patience and time. If the employee management system is down or causing some errors, it hugely impacts the Human resources and finance department. 
+- Employee management systems are costly, requiring lot of administrative work, patience and time. 
+- If the employee management system is down or causing some errors, it hugely impacts the Human resources and finance department. 
 ### Oppurtunities
-Voice assist and virtual assistant can be incorporated to give a better user experience.
-Biometric scan and facial reconisation can also provide a seamless and hassle free experience.
+- Voice assist and virtual assistant can be incorporated to give a better user experience.
+- Biometric scan and facial reconisation can also provide a seamless and hassle free experience.
 ### Threats
-SQL injection attack.
-Cross origin resources sharing.
-Unnecessary increase of deployment binary size with unused dependencies.
+- SQL injection attack.
+- Unknown vulnerabilities in Spring MVC/Boot packages
+- Unnecessary increase of deployment binary size with unused dependencies.
 
 
 
