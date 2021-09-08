@@ -55,6 +55,9 @@ Employee management systems are costly, requiring lot of administrative work, pa
 Voice assist and virtual assistant can be incorporated to give a better user experience.
 Biometric scan and facial reconisation can also provide a seamless and hassle free experience.
 ### Threats
+SQL injection attack.
+Cross origin resources sharing.
+Unnecessary increase of deployment binary size with unused dependencies.
 
 
 
