@@ -18,16 +18,16 @@ The important point is considered during the cost estimation of the project is i
 
 We have basically estimated our project mainly on two bases:
 
-## Effort Estimation**
+### Effort Estimation
 
 This refers to thetotal man hours required for the development of the project. It includes time
 required for documentation also.
 
-## Hardware Required Estimation
+### Hardware Required Estimation
 
 This includes cost of the PCs and hardware cost required for development of the project.
 
-## Features of Project
+### Features of Project
 
 ·User Secured Login
 
