@@ -53,6 +53,7 @@ Admin/Manager/HR personnel can keep track of employee information, attendance re
 Employee management systems are costly, requiring lot of administrative work, patience and time. If the employee management system is down or causing some errors, it hugely impacts the Human resources and finance department. 
 ### Oppurtunities
 Voice assist and virtual assistant can be incorporated to give a better user experience.
+Biometric scan and facial reconisation can also provide a seamless and hassle free experience.
 ### Threats
 
 
@@ -61,15 +62,22 @@ Voice assist and virtual assistant can be incorporated to give a better user exp
 
 ## 4W's and 1H
 
-### Who
+### Who 
+Employee management systems(EMS) are used in organisation where employee details and work hours are required for calculating salaries. 
+Startups and large scale organisations have their own employee management systems.
 
 ### What
+Employee management system(EMS) tracks employee's working hours, records their personal information and gives them option to upload their picture in the portal.
 
 ### When
+When a employee gets onboarded in a company, they will be given acess to EMS to track thier attendance.
+
 
 ### Where
+EMS will be used in corporate sector where work hours are required to calculate salary/pay.
 
 ### How
+Employees will register themselves in the portal and then update their personal details. Daily they have to mark their attendance for in and out time.
 
 ### Ageing Factor
 
