@@ -26,7 +26,7 @@
 |      ID          |Description                          |Status                         |
 |----------------|-------------------------------|-----------------------------|
 |HR_01|User should be able to register |To Be Implemented|
-|HR_02|User should be able to login & logout To Be |Implemented|
+|HR_02|User should be able to login & logout|To Be Implemented|
 |HR_03|User Updation|To Be Implemented|
 |HR_04|User Profile|To Be Implemented|
 |HR_05|Update Attendance|To Be Implemented|
