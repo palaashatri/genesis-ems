@@ -25,31 +25,29 @@
 
 |      ID          |Description                          |Status                         |
 |----------------|-------------------------------|-----------------------------|
-|HR_01|User should be able to register |To Be Implemented|
-|HR_02|User should be able to login & logout|To Be Implemented|
-|HR_03|User Updation|To Be Implemented|
-|HR_04|User Profile|To Be Implemented|
-|HR_05|Update Attendance|To Be Implemented|
-|HR_06|User uploading images|To Be Implemented|
-
-
-
+|HR_01|Login Functionality |To Be Implemented|
+|HR_02|Employee View|To Be Implemented|
+|HR_03|Admin View|To Be Implemented|
 
 
 ##  Low level Requirements:
 |      ID          |Description                          |  HLR_ID  |Status               |
 |----------------|-------------------------------|----------|-----------------------------|
-|LR_01|User authentication|HR_01|To Be Implemented|
-|LR_02|User authorisation|HR_01|To Be Implemented|
-|LR_03|Error Handling|HR_01|To Be Implemented|
-|LR_04|Update all details except gender,Date of Joining |HR_01|To Be Implemented|
-|LR_05|Password should be masked|HR_01|To Be Implemented|
-|LR_06|Login and Logout session|HR_01|To Be Implemented|
-|LR_07|User can add image irrespective of the image format|HR_01|To Be Implemented|
-|LR_08|User details has to get validated with the details in the database.|HR_01|To Be Implemented|
-|LR_09|User should be able to update the attendance for the previous & current day(in & out time)|HR_02|To Be Implemented|
-|LR_10|User profile page should display all his/her details|HR_02|To Be Implemented|
-
+|LR_01| Login Page | HR_01 | To Be Implemented |
+|LR_02| User Authentication/Authorisation | HR_01 | To Be Implemented |
+|LR_03| Show Employee Details | HR_02 | To Be Implemented |
+|LR_04| Update Employee Details | HR_02 | To Be Implemented|
+|LR_05| Update Attendance | HR _02 | To Be Implemented |
+|lR_06| Update Profile Picture | HR_02 | To Be Implemented |
+|LR_07| New Employee Registeration Page | HR_03 | To Be Implemented |
+|LR_08| View All Employees | HR_03 | To Be Implemented |
+|LR_09 | Update Employee | HR_03 | To Be Implemented | 
+|LR_10| Delete Employee | HR_03 | To Be Implemented |
+|LR_11| View All Departments | HR_03 | To Be Implemented |
+|LR_12| Add New Department | HR_03 | To Be Implemented |
+|LR_13| Update Department | HR_03 | To Be Implemented |
+|LR_14| Delete Department | HR_03 | To Be Implemented |
+|LR_15| Employee Attendance | HR_03 | To Be Implemented |
 <!-- # Table Stucture
 
 ## Employee Table
