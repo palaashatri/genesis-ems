@@ -48,7 +48,14 @@ This includes cost of the PCs and hardware cost required for development of the 
 ## SWOT Analysis
 ### Strengths
 Employee management systems are useful for running a smooth organisation, especially organisations of scale. 
-Admin/Manager can keep track of employee information, attendance records and more.
+Admin/Manager/HR personnel can keep track of employee information, attendance records and more.
+### Weakness
+Employee management systems are costly, requiring lot of administrative work, patience and time. If the employee management system is down or causing some errors, it hugely impacts the Human resources and finance department. 
+### Oppurtunities
+Voice assist and virtual assistant can be incorporated to give a better user experience.
+### Threats
+
+
 
 
 
