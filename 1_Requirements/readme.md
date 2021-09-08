@@ -1,8 +1,9 @@
 # Requirements
 ## Introduction
-
+This project aims at developing an Empolyee Management System which can keep track of all the employees in an organisation.It is a platform where employee can store,edit,update their details and also can regularise their attendance.Their attendance will be monitored regularly by the admin.
 
 ## Research
+In olden days,Employee management system in the organization used the ordinary classical methods which are merely based on pen-paper to record the data of their employees.Large number of registers had to be maintained which took more time and effort.It was a tedious process.And then the techniques evolved such as facial recognition,biometric scan and card punching etc.This again is a costly process and requires regular maintenance.The introduction of Web Applications solved all these isssues and also made it easier to manage employees which is cheaper and saves a lot of time and effort too.
 
 ## Cost and Features
 
