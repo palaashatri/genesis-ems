@@ -8,6 +8,11 @@ In olden days,Employee management system in the organization used the ordinary c
 ## Cost and Features
 
 ## SWOT Analysis
+### Strengths
+Employee management systems are useful for running a smooth organisation, especially organisations of scale. 
+Admin/Manager can keep track of employee information, attendance records and more.
+
+
 
 ## 4W's and 1H
 ### Who
