@@ -25,7 +25,7 @@
 
 
 ### For Employee
-![AdminEmployee_Low_Level](https://github.com/netizener/genesis-ems/blob/main/2_Architecture/Admin-View-For-Department.png)
+![AdminEmployee_Low_Level](https://github.com/netizener/genesis-ems/blob/main/2_Architecture/Admin-View-For-Employee.png)
 
 
 
