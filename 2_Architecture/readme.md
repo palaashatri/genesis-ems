@@ -17,7 +17,7 @@
 ## Admin View
 
 ### For attendance
-![AdminAttendance_Low_Level](https://github.com/netizener/genesis-ems/blob/main/2_Architecture/Employee-Attendance-EMS.png)
+![AdminAttendance_Low_Level](https://github.com/netizener/genesis-ems/blob/main/2_Architecture/Admin-View-For-Attendance.png)
 
 
 ### For Department
