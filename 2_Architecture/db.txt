@@ -1,0 +1,5 @@
+create database ems;
+use ems;
+create table Departments (department_id int primary key, department_name varchar(255), department_location varchar(255));
+create table Employees (emp_id int primary key, first_name varchar(255), last_name varchar(255), username varchar(255) unique, password varchar(255), date_of_joining date, gender char(1), date_of_birth date, role varchar(255), department_id int, emp_photo longblob, foreign key(department_id) references Departments(department_id));
+create table Attendance (att_id int primary key, emp_id int, in_time date, out_time date, reason varchar(255), status varchar(255), foreign key(emp_id) references Employees(emp_id));
