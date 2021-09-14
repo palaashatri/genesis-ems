@@ -3,11 +3,14 @@ package com.ltts.project.ems.model;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Attendance {
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private int attId;
     private int empId;
     private LocalDate inTime;
