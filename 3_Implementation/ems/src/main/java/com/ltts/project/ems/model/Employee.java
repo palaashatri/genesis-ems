@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 
-import net.bytebuddy.asm.Advice.Local;
 
 @Entity
 public class Employee {
