@@ -24,22 +24,32 @@ public class EmployeeController {
 
 	
 	
-	@RequestMapping("/")
-	public ModelAndView m1()
-	{
-		return new ModelAndView("loginPage");
-	}
-	@GetMapping("/home")
-	public ModelAndView home() {
-		return new ModelAndView("Invalid");
-	}
-	
-	@GetMapping("/admin")
-	public String admin() {
-		return "Admin";
-		
-	}
 	
 	
+	@RequestMapping(value="/", method=RequestMethod.GET)    
+    public ModelAndView index() {    
+            
+        return new ModelAndView("index");    
+    }    
 	
-}
+	@RequestMapping(value="/admin", method=RequestMethod.GET)    
+    public ModelAndView admin() {    
+            
+        return new ModelAndView("Aditya");    
+    } 
+	
+    @RequestMapping(value="/login", method=RequestMethod.GET)    
+    public ModelAndView login() {    
+        
+        return new ModelAndView("login");    
+    }   
+    @RequestMapping(value="/user", method=RequestMethod.GET)    
+    public ModelAndView user() {    
+        
+        return new ModelAndView("Shiv");    
+    }    
+}    
+	
+	
+	
+
