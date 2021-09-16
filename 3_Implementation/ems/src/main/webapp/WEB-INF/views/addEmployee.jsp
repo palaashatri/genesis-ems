@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Add New Employee</title>
 </head>
 <body>
+	<h1>Add New Employee</h1>
 <form action="insertEmployee" method="post" >
 employee id: <input type="number" name="eid"><br><br>
 firstName: <input type="text" name="fname"><br><br>

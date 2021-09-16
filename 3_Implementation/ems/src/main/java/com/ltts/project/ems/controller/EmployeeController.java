@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,18 +25,24 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeDao employeeDao;
 	
-	@RequestMapping("/")
-	public ModelAndView m1()
-	{
-		return new ModelAndView("home");
+	// view employee details
+	@RequestMapping("/employees/{id}")
+	public ModelAndView m1(@PathVariable(name = "id") int id){
+		ModelAndView map = new ModelAndView("employeeProfile");
+		map.addObject("id", id);
+		map.addObject("service", service);
+
+		return map;
 	}
 	
-	@RequestMapping("/addEmployee")
+	// add new employee view
+	@RequestMapping("/employees/new")
 	public ModelAndView m2()
 	{
 		return new ModelAndView("addEmployee");
 	}
 	
+	// adding the employee through form
 	@RequestMapping(value="/insertEmployee",method = RequestMethod.POST)
 	public ModelAndView m3(HttpServletRequest request)
 	{
@@ -68,7 +75,7 @@ public class EmployeeController {
 		return mv;
 	}
 
-
+	// to be looked : update employee
 	 @RequestMapping("updateEmployees")
 		public ModelAndView m11() {
 			

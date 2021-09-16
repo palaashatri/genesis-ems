@@ -7,10 +7,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin</title>
 </head>
 <body>
     
-  <a href="addEmployee"> Add Employees</a>
+  <a href="employees/new"> Add Employees</a>
+  <a href="employees">All Employees</a>
+  <a href="updateEmployee">Update Employee</a>
+  <a href="#">Regularise Attendance</a>
 </body>
 </html>
