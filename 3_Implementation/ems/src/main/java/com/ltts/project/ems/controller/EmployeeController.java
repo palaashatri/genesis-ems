@@ -24,10 +24,10 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeDao employeeDao;
 	
-	// @RequestMapping("/")
-	// public ModelAndView m1() {
-	// 	return new ModelAndView("index");
-    //   }
+	@RequestMapping("/")
+	public ModelAndView m1() {
+		return new ModelAndView("index");
+      }
 
 	 @RequestMapping("updateEmployees")
 		public ModelAndView m11() {
@@ -60,7 +60,7 @@ public class EmployeeController {
 			m.setPassword(password);
 			//m.setDateOfJoining(dateOfJoining);
 			m.setRole(role);
-			m.setGender(gender);
+			//m.setGender(gender);
 			m.setDepartmentId(deptId);
 			m.setDateOfBirth(ld1);
 			Employee m1=service.updateEmployee(m);
