@@ -1,7 +1,7 @@
 package com.ltts.project.ems.model;
 
 import java.time.LocalDate;
-import java.util.Arrays;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
