@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page import="com.ltts.project.ems.model.*, com.ltts.project.ems.dao.*,java.util.*"%>
+    <%@ page import="com.ltts.project.ems.model.*, com.ltts.project.ems.dao.*,java.util.*,com.ltts.project.ems.service.*"%>
 
 <!DOCTYPE html>
 <html lang="en">
