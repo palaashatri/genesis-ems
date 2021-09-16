@@ -11,6 +11,6 @@
 </head>
 <body>
     
-  <a href="addEmployee.jsp"> Add Employees</a>
+  <a href="addEmployee"> Add Employees</a>
 </body>
 </html>
