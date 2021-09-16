@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import com.ltts.project.ems.dao.EmployeeDao;
-import com.ltts.project.ems.dao.EmployeeDaoService;
 import com.ltts.project.ems.model.Employee;
+import com.ltts.project.ems.service.EmployeeDaoService;
 
 
 @RestController
