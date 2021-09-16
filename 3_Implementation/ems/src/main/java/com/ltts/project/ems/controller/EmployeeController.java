@@ -24,10 +24,10 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeDao employeeDao;
 	
-	@RequestMapping("/")
-	public ModelAndView m1() {
-		return new ModelAndView("index");
-      }
+	// @RequestMapping("/")
+	// public ModelAndView m1() {
+	// 	return new ModelAndView("index");
+    //   }
 
 	 @RequestMapping("updateEmployees")
 		public ModelAndView m11() {
