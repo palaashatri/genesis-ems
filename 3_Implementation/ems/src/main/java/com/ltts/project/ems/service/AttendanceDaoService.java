@@ -1,5 +1,6 @@
-package com.ltts.project.ems.dao;
+package com.ltts.project.ems.service;
 
+import com.ltts.project.ems.dao.AttendanceDao;
 import com.ltts.project.ems.model.Attendance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

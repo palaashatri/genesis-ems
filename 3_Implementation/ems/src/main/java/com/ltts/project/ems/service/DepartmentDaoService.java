@@ -1,7 +1,8 @@
-package com.ltts.project.ems.dao;
+package com.ltts.project.ems.service;
 
 import java.util.List;
 
+import com.ltts.project.ems.dao.DepartmentDao;
 import com.ltts.project.ems.model.Department;
 
 import org.springframework.beans.factory.annotation.Autowired;
