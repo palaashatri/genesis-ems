@@ -32,6 +32,8 @@
             <li>Employee Role : <span><%=em.getRole()%></span></li>
             <li>Department : <span><%=em.getDepartmentId()%></span></li>
         </ul>
+        <button><a href="updateEmployees">Update Profile</a></button>
+        <button><a href="/employees/<%=em.getEmpId()%>/setInactive"> set Inactive</a></button>
     </div>
 </body>
 </html>

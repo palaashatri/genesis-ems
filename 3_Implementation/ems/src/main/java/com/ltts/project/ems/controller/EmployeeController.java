@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.ltts.project.ems.dao.EmployeeDao;
 import com.ltts.project.ems.model.Employee;
 import com.ltts.project.ems.service.EmployeeDaoService;
@@ -76,6 +78,7 @@ public class EmployeeController {
 	}
 
 	// to be looked : update employee
+	// need to create restful route : "/employees/{id}/update"
 	 @RequestMapping("updateEmployees")
 		public ModelAndView m11() {
 			
@@ -115,5 +118,12 @@ public class EmployeeController {
 			return mv;
 		}
 		
-	
+	@RequestMapping("/employees/{id}/setInactive")
+	public ModelAndView m12(@PathVariable(name = "id") int id){
+		Employee em = service.getEmployeeById(id);
+		em.setIsActive("false");
+		service.updateEmployee(em);
+		ModelAndView mv = new ModelAndView("success");
+		return mv;
+	}
 }
