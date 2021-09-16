@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+    
+<head>
+<meta charset="ISO-8859-1">
+<title>View Movies</title>
+</head>
+<body>
+<table>
+<tr>
+<th>Movie Id</th>
+<th>Movie Name</th>
+<th>Hero Name</th>
+<th>Heroine Name</th>
+<th>Release Date</th>
+<th>Language</th>
+<th>Length</th>
+<th>MovieType</th>
+<th>Production Id</th>
+<th sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR')">Actions</th>
+</tr>
+<!-- 
+<tr th:each="movie : ${}">
+
+<td><c:out value="${m.getMovieId() }"></c:out> </td>
+<td><c:out value="${m.getMovieName() }"></c:out> </td>
+<td><c:out value="${m.getHeroName() }"></c:out> </td>
+<td><c:out value="${m.getHeroineName() }"></c:out> </td>
+<td><c:out value="${m.getReleaseDate() }"></c:out> </td>
+<td><c:out value="${m.getLanguage() }"></c:out> </td>
+<td><c:out value="${m.getLength() }"></c:out> </td>
+<td><c:out value="${m.getMovieType() }"></c:out> </td>
+<td><c:out value="${m.getProductionId() }"></c:out> </td>
+<td><a href="updatemovie/${m.getMovieId()}"><button class="button">Edit Movie</button></a></td>
+<td><a href="deletemovie/${m.getMovieId()}"><button class="button">Delete Movie</button></a></td>
+
+<td><a th:href="/@{'/edit/' + ${movie.movieId}}">Edit</a></td>
+movieId;
+movieName;
+heroName;
+heroineName;
+releaseDate;
+language;
+length;
+movieType;
+productionId;
+
+</tr>
+ -->
+<tr th:each="movie : ${listMovies}">
+<td th:text="${movie.movieId}">Movie Id</td>
+<td th:text="${movie.movieName}">Movie Name</td>
+<td th:text="${movie.heroName}">Movie heroName</td>
+<td th:text="${movie.heroineName}">Movie heroineName</td>
+<td th:text="${movie.releaseDate}">Movie date</td>
+<td th:text="${movie.language}">Movie Language</td>
+	
+<td th:text="${movie.length}">Movie length</td>
+<td th:text="${movie.movieType}">Movie movieType</td>
+<td th:text="${movie.productionId}">Movie productionId</td>
+<td sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR')">
+<a th:href="@{/edit/{id}(id=${movie.movieId})}">Edit</a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a sec:authorize="hasAuthority('ADMIN')" th:href="@{/delete/{id}(id=${movie.movieId})}">Delete</a>
+</td>
+
+
+
+</tr>
+
+
+
+</table>
+</body>
+</html>

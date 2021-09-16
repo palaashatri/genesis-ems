@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Index Page</title>
+</head>
+<body>
+
+<div align="center">
+<div sec:authorize="isAuthenticated()">
+    <p>Welcome <b><span sec:authentication="name">Username</span></b><p>
+ &nbsp;
+    <span sec:authentication="principal.authorities">Roles</span>
+    
+    <form th:action="@{/logout}" method="post">
+    <input type="submit" value="Logout"/>
+    </form>
+    
+    
+</div>
+<h1>Welcome to Movie Application</h1>
+
+
+
+<a href="new">Add Movies</a>
+
+<a href="viewmovie">View Movies</a>
+</div>
+
+<!-- 
+<a href="selectlanguage">View Movies By Language</a>
+
+<a href="deletemovie">Delete Movie</a>
+<a href="updatemovie">Update Movie</a>
+<a href="deletemovie">Delete Movies</a>
+<a href="editmovie">Update Movies</a>
+ -->
+
+</body>
+</html>
