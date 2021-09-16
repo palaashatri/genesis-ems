@@ -99,6 +99,12 @@ public class Employee {
 		public void setIsActive(String isActive) {
 			this.isActive = isActive;
 		}
+
+        public Employee() {
+            super();
+        }
+    
+
 		public Employee(int empId, String firstName, String lastName, String userName, String password,
 				LocalDate dateOfJoining, String gender, LocalDate dateOfBirth, String role, int departmentId,
 				String empPhoto, String isActive) {

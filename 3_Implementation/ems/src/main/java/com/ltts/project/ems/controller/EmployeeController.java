@@ -25,9 +25,49 @@ public class EmployeeController {
 	private EmployeeDao employeeDao;
 	
 	@RequestMapping("/")
-	public ModelAndView m1() {
-		return new ModelAndView("index");
-      }
+	public ModelAndView m1()
+	{
+		return new ModelAndView("home");
+	}
+	
+	@RequestMapping("/addEmployee")
+	public ModelAndView m2()
+	{
+		return new ModelAndView("addEmployee");
+	}
+	
+	@RequestMapping(value="/insertEmployee",method = RequestMethod.POST)
+	public ModelAndView m3(HttpServletRequest request)
+	{
+		ModelAndView mv=null;
+		int id=Integer.parseInt(request.getParameter("eid"));
+		String e_firstName=request.getParameter("fname");
+		String e_lastName=request.getParameter("lname");
+		String e_userName=request.getParameter("uname");
+		String e_password=request.getParameter("password");
+		
+	
+		//DateTimeFormatter dtf=DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		String doj=request.getParameter("doj");
+		String dob=request.getParameter("dob");
+		
+		LocalDate e_doj=LocalDate.parse(doj);
+		String e_gender=request.getParameter("gender");
+		LocalDate e_dob=LocalDate.parse(dob);
+		String e_role=request.getParameter("role");
+		String e_imgUrl="Image goes here";
+		int e_deptId=Integer.parseInt(request.getParameter("did"));
+		String status="active";
+        Employee e=new Employee(id,e_firstName,e_lastName,e_userName,e_password,e_doj,e_gender,e_dob,e_role,e_deptId,e_imgUrl,status);
+
+		Employee e1=service.insertEmployee(e);
+		System.out.println(e1);
+	
+
+		mv=new ModelAndView("success");
+		return mv;
+	}
+
 
 	 @RequestMapping("updateEmployees")
 		public ModelAndView m11() {
