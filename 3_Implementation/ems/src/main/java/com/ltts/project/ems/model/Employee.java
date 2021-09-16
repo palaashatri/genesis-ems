@@ -118,10 +118,10 @@ public class Employee {
 		}
 		@Override
 		public String toString() {
-			return "Us [empId=" + empId + ", firstName=" + firstName + ", lastName=" + lastName + ", userName="
+			return "empId=" + empId + ", firstName=" + firstName + ", lastName=" + lastName + ", userName="
 					+ userName + ", password=" + password + ", dateOfJoining=" + dateOfJoining + ", gender=" + gender
 					+ ", dateOfBirth=" + dateOfBirth + ", role=" + role + ", departmentId=" + departmentId
-					+ ", empPhoto=" + empPhoto + ", isActive=" + isActive + "]";
+					+ ", empPhoto=" + empPhoto + ", isActive=" + isActive ;
 		}
 		
 
