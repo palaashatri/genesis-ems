@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -19,8 +19,10 @@ public class Employee {
    private String lastName;
    private String userName;
    private String password;
+   @DateTimeFormat(pattern="yyyy-MM-dd")
    private LocalDate dateOfJoining;
    private String gender;
+   @DateTimeFormat(pattern="yyyy-MM-dd")
    private LocalDate dateOfBirth;
    private String role;
    private int departmentId;
