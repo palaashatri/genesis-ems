@@ -40,6 +40,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 			}
 			return employee;
 		}
+
+public void deleteById(int id){
+        employeeDao.deleteById(id);
+        return;
+    }
+
 	}
 
 
