@@ -164,7 +164,7 @@ public class EmployeeController {
 	public String saveEmployee(@ModelAttribute("employee") Employee employee) {
 		
 		employeeService.saveEmployee(employee);
-		return "redirect:/";
+		return "redirect:/employees";
 	}
     
     @GetMapping("/employees/{id}/update")
@@ -176,6 +176,14 @@ public class EmployeeController {
 		
 		model.addAttribute("employee", employee);
 		return "update_employee";
+	}
+
+	@GetMapping("/employees/{id}/setInactive")
+	public String setInactive(@PathVariable(value = "id") int id){
+		Employee employee = employeeService.getEmployeeById(id);
+		employee.setIsActive("false");
+		employeeService.saveEmployee(employee);
+		return "redirect:/employees";
 	}
     
     }

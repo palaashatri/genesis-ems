@@ -41,7 +41,8 @@
 <td th:text="${employee.role}"></td>
 <td th:text="${employee.departmentId}"></td>
 <td th:src="${employee.empPhoto}"></td>
-<td> <a th:href="@{/employees/{id}/update(id=${employee.empId})}" class="btn btn-primary">Update</a>
+<td> <a th:href="@{/employees/{id}/update(id=${employee.empId})}" class="btn btn-primary">Update</a></td>
+<td><a th:href="@{/employees/{id}/setInactive(id=${employee.empId})}" class="btn btn-danger">Set Inactive</a></td>
 </tbody>
 </table>
 </div>
