@@ -151,7 +151,7 @@ public class EmployeeController {
     	{
     		model.addAttribute("listEmployees",employeeService.getAllEmployees());
     		System.out.print(employeeService.getAllEmployees());
-			return "index";
+			return "employees";
     	}
      @GetMapping("/employees/new")
 	 public String showNewEmployeeForm(Model model) {
@@ -167,7 +167,7 @@ public class EmployeeController {
 		return "redirect:/";
 	}
     
-    @GetMapping("/showFormForUpdate/{id}")
+    @GetMapping("/employees/{id}/update")
 	public String showFormForUpdate(@PathVariable ( value = "id") int id, Model model) {
 		
 		

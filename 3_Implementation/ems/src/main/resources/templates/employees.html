@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO--8859-1">
+<title>Employee Management</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+<body>
+<div align="center">
+<a th:href="@{/employees/new}" class="btn btn-primary btn-sm mb-3">Add</a>
+<h1>Employees List</h1>
+<table border="1" class = "table table-striped table-responsive-md">
+<thead>
+<tr>
+<th>Id</th>
+<th>First Name</th>
+<th>Last Name</th>
+<th>User Name</th>
+<th>Password</th>
+<th>Date Of joining</th>
+<th>Gender</th>
+<th>Date of birth</th>
+<th>Role</th>
+<th>Department Id</th>
+</tr>
+</thead>
+<tbody>
+<p>Values</p>
+<tr th:each="employee: ${listEmployees}">
+<td th:text="${employee.empId}"></td>
+<td th:text="${employee.firstName}"></td>
+<td th:text="${employee.lastName}"></td>
+<td th:text="${employee.userName}"></td>
+<td th:text="${employee.password}"></td>
+<td th:text="${employee.dateOfJoining}"></td>
+<td th:text="${employee.gender}"></td>
+<td th:text="${employee.dateOfBirth}"></td>
+<td th:text="${employee.role}"></td>
+<td th:text="${employee.departmentId}"></td>
+<td th:src="${employee.empPhoto}"></td>
+<td> <a th:href="@{/employees/{id}/update(id=${employee.empId})}" class="btn btn-primary">Update</a>
+</tbody>
+</table>
+</div>
+</body>
+</html>
+
+
