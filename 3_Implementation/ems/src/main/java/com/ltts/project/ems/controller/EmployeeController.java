@@ -145,7 +145,7 @@ public class EmployeeController {
 	@Autowired
 	EmployeeService employeeService;
 	
-    @GetMapping("/")
+    @GetMapping("/employees")
 
     	public String viewHomePage(Model model)
     	{
@@ -153,7 +153,7 @@ public class EmployeeController {
     		System.out.print(employeeService.getAllEmployees());
 			return "index";
     	}
-     @GetMapping("/showNewEmployeeForm")
+     @GetMapping("/employees/new")
 	 public String showNewEmployeeForm(Model model) {
 		// create model attribute to bind form data
 		Employee employee = new Employee();
