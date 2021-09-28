@@ -87,13 +87,13 @@ div.content {
 				<input type="date" th:value="*{dateOfBirth}"  th:field="*{dateOfBirth}" class="form-control mb-4 col-4">
 				<input type="text" th:field="*{role}" class="form-control mb-4 col-4">
 				<input type="number" th:field="*{departmentId}" class="form-control mb-4 col-4">
-				<input type="file" th:field="*{empPhoto}" class="form-control mb-4 col-4">
+				<input type="text" th:field="*{empPhoto}" class="form-control mb-4 col-4" placeholder="img url">
 				<button type="submit" class="btn btn-info col-2"> Update Employee</button>
 		</form>
 		
 		<hr>
 		
-		<a th:href = "@{/}"> Back to Employees List</a>
+		<a th:href = "@{/employees}"> Back to Employees List</a>
 	</div>
 </body>
 </html>
