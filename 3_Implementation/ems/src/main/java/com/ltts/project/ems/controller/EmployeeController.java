@@ -145,16 +145,18 @@ public class EmployeeController {
 	@Autowired
 	EmployeeService employeeService;
 	
-    @GetMapping("/employees")
+    @GetMapping("/employees") 
 
     	public String viewHomePage(Model model)
     	{
+			// shows employee repository. distributes employees into 2 tables > active and inactive
     		model.addAttribute("listEmployees",employeeService.getAllEmployees());
     		System.out.print(employeeService.getAllEmployees());
 			return "employees";
     	}
      @GetMapping("/employees/new")
 	 public String showNewEmployeeForm(Model model) {
+		 // create new employee
 		// create model attribute to bind form data
 		Employee employee = new Employee();
 		model.addAttribute("employee", employee);
@@ -162,15 +164,22 @@ public class EmployeeController {
 	}
     @PostMapping("/saveEmployee")
 	public String saveEmployee(@ModelAttribute("employee") Employee employee) {
-		
+		// save employee to db
 		employeeService.saveEmployee(employee);
 		return "redirect:/employees";
+	}
+
+	@GetMapping("/employees/{id}")
+	public String employeeProfile(@PathVariable(value = "id")int id, Model model){
+		Employee employee = employeeService.getEmployeeById(id);
+		model.addAttribute("employee", employee);
+		return "employee_profile";
 	}
     
     @GetMapping("/employees/{id}/update")
 	public String showFormForUpdate(@PathVariable ( value = "id") int id, Model model) {
 		
-		
+		// fetch employee data from db, put them into form and update them into form
 		Employee employee = employeeService.getEmployeeById(id);
 		
 		
@@ -180,6 +189,8 @@ public class EmployeeController {
 
 	@GetMapping("/employees/{id}/setInactive")
 	public String setInactive(@PathVariable(value = "id") int id){
+
+		// set employee state as inactive
 		Employee employee = employeeService.getEmployeeById(id);
 		employee.setIsActive("false");
 		employeeService.saveEmployee(employee);
