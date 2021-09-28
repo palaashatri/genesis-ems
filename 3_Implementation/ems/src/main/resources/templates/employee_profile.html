@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${employee.empId}"></title>
+</head>
+<body>
+    <center><h1>Employee Details</h1></center>
+    <img src=${employee.empPhoto} alt="Photo">
+    <ul>
+        <li> ID : <span th:text=${employee.empId}></span></li>
+        <li> Name : <span th:text=${employee.firstName}></span> <span th:text=${employee.lastName}></span></li>
+        <li> Username : <span th:text=${employee.userName}></span></li>
+        
+        <li> Gender : <span th:text=${employee.gender}></span></li>
+        <li> Date Of Birth : <span th:text=${employee.dateOfBirth}></span></li>
+        <hr>
+        <li> Date of Joining : <span th:text=${employee.dateOfJoining}></span></li>
+        <li> Role : <span th:text=${employee.role}></span></li>
+        <li> Department : <span th:text=${employee.departmentId}></span></li>
+        <li> Status : <span th:text=${employee.isActive}></span></li>
+    </ul>
+    <a th:href="@{/employees/{id}/update(id = ${employee.empId})}">Update Details</a>
+</body>
+</html>
