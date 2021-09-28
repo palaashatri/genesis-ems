@@ -10,7 +10,7 @@
 </head>
 <body>
 <div align="center">
-<a th:href="@{/employees/new}" class="btn btn-primary btn-sm mb-3">Add</a>
+
 <h1>Employees List</h1>
 <table border="1" class = "table table-striped table-responsive-md">
 <thead>
@@ -28,7 +28,7 @@
 </tr>
 </thead>
 <tbody>
-<p>Values</p>
+<!-- <p>Values</p> -->
 <tr th:each="employee: ${listEmployees}">
 <td th:text="${employee.empId}"></td>
 <td th:text="${employee.firstName}"></td>
@@ -40,11 +40,12 @@
 <td th:text="${employee.dateOfBirth}"></td>
 <td th:text="${employee.role}"></td>
 <td th:text="${employee.departmentId}"></td>
-<td th:src="${employee.empPhoto}"></td>
+<td> <a th:href="@{/employees/{id}(id=${employee.empId})}" class="btn btn-success">View Details</a></td>
 <td> <a th:href="@{/employees/{id}/update(id=${employee.empId})}" class="btn btn-primary">Update</a></td>
 <td><a th:href="@{/employees/{id}/setInactive(id=${employee.empId})}" class="btn btn-danger">Set Inactive</a></td>
 </tbody>
 </table>
+<a th:href="@{/employees/new}" class="btn btn-primary btn-sm mb-3">Add New Employee</a>
 </div>
 </body>
 </html>
