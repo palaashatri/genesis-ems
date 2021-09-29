@@ -2,10 +2,25 @@ package com.ltts.project.ems.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import java.io.IOException;
+
+
+
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+
+
+
 import com.ltts.project.ems.model.Employee;
 import com.ltts.project.ems.service.EmployeeService;
 
@@ -162,10 +177,35 @@ public class EmployeeController {
 		model.addAttribute("employee", employee);
 		return "new_employee";
 	}
+
     @PostMapping("/saveEmployee")
-	public String saveEmployee(@ModelAttribute("employee") Employee employee) {
+	public String saveEmployee(@ModelAttribute("employee") Employee employee,@RequestParam("fileImage") MultipartFile multipartFile) throws IOException {
 		// save employee to db
-		employeeService.saveEmployee(employee);
+		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+		employee.setPhoto(fileName);
+		Employee savedEmployee= employeeService.saveEmployee(employee);
+		String uploadDir ="./employee-photos/" + savedEmployee.getEmpId();
+
+		Path uploadPath = Paths.get(uploadDir);
+	
+		if(!Files.exists(uploadPath)){
+		Files.createDirectories(uploadPath);
+		
+		}
+	
+		try(InputStream inputStream =multipartFile.getInputStream()){
+		Path filePath=uploadPath.resolve(fileName);
+		System.out.println(filePath.toFile().getAbsolutePath());
+		Files.copy(inputStream,filePath, StandardCopyOption.REPLACE_EXISTING);
+		}
+		catch(IOException e) {
+		throw new IOException("Could not save uploaded file: "+ fileName);
+		}
+	
+
+
+
+
 		return "redirect:/employees";
 	}
 
