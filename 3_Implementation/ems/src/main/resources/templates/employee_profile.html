@@ -31,13 +31,13 @@
             </div>
             <ul class="nav flex-column pt-3">
               <li class="nav-item">
-                <a class="nav-link text-light" href="#">
+                <a class="nav-link text-light" th:href="@{/employees}">
                   <span data-feather="home"></span>
                   Dashboard
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light" href="#">
+                <a class="nav-link text-light" th:href="@{/employees/new}">
                   <span data-feather="home"></span>
                   Add Employee
                 </a>
@@ -68,9 +68,9 @@
                 </a>
 
                 <span class="text-muted small d-inline ml-3">
-                  <a class="text-muted" href="/pages/loginPage.html">Login</a> |
-                  <a class="text-muted" href="/pages/signupPage.html"
-                    >Sign Up</a
+                  <a class="text-muted" th:href="@{/loginPage}" href="#">Login</a> |
+                  <a class="text-muted" th:href="@{/signupPage}" href="#">                  
+                    Sign Up</a
                   >
                 </span>
               </li>
@@ -166,6 +166,7 @@
                  <b>Status</b> :<span th:text=${employee.isActive}></span>
                 </div>
                 <a th:href="@{/employees/{id}/update(id = ${employee.empId})}">Update Employee Details</a>
+             
                 
               </form>
             </div>
