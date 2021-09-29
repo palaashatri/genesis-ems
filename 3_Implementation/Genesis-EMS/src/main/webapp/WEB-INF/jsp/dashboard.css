@@ -1,8 +1,3 @@
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
- pageEncoding="UTF-8"%>
- 
-<style>
 @charset "ISO-8859-1";
 @import 'https://fonts.googleapis.com/css?family=Lato:300,400';
 
@@ -51,7 +46,7 @@ h1{
 header {
 	height: 50px;
 	width: 100%;
-	background-color: #4682B4;
+	background-color: #274C6B;
 	display: none;
 }
 header .logo {
@@ -154,7 +149,7 @@ header .logo {
 }
 
 .main-content {
-	background-color: #4682B4;
+	background-color: #fafafa;
 	width: calc(100% - 250px);
 	height: 100%;
 	margin-left: 250px;
@@ -166,10 +161,10 @@ header .logo {
 }
 
 .main-content .panel-wrapper .panel-head {
-	background-color: #FF8C00;
+	background-color: #00A5F2;
 	color: #fff;
 	padding: 10px 10px;
-	border: 1px solid #FF8C00;
+	border: 1px solid #00A5F2;
 }
 .main-content .panel-wrapper .panel-body {
 	padding: 20px 10px;
@@ -221,39 +216,3 @@ header .logo {
 		position: relative;
 	}
 }
-</style>
-        <head>
-            <title>ADMIN DASHBOARD</title>
-            <link rel="stylesheet" href="dashboard.css">
-         </head>
-
-        <body>
-
-            <header>
-		<div class="logo">Employee Management</div>
-	</header>
-	<div class="nav-btn">Menu</div>
-	<div class="container">
-		
-		<div class="sidebar">
-			<nav>
-				<a>Employee Management</a>
-				<ul>
-					<li class="active"><a href="#">Dashboard</a></li>
-				</ul>
-			</nav>
-		</div>
-
-		<div class="main-content">
-			<h1>Employee Dashboard</h1><br>
-			<p href="#">Users</p><br>
-			<!--<div class="panel-wrapper">-->
-			<!--<div class="panel-head">-->
-			<a href="/api/addview" class="btn btn-success">Add New Employee</a><br><br>
-     		<a href="/api/adminview" class="btn btn-success">View Employees</a><br><br>
-     		<a href="/api/navabout" class="btn btn-success">About</a><br><br>
-     		<a href="/api/log" class="btn btn-success">Logout</a><br>
-	        	
-		</div>	
-        </body>
-        </html>
