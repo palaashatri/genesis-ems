@@ -196,5 +196,24 @@ public class EmployeeController {
 		employeeService.saveEmployee(employee);
 		return "redirect:/employees";
 	}
-    
+	
+	
+	@GetMapping("/signupPage")
+	public String signupPage(Model model){
+		
+		return "signupPage";
+	}
+	
+	@GetMapping("/loginPage")
+	public String loginPage(Model model){
+		
+		return "loginPage";
+	}
+	@GetMapping("/attendance")
+	public String attendance(Model model){
+		
+		return "attendance";
+	}
+	
+	
     }
