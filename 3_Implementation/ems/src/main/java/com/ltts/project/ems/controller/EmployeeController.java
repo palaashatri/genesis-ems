@@ -180,7 +180,7 @@ public class EmployeeController {
 
     @PostMapping("/saveEmployee")
 	public String saveEmployee(@ModelAttribute("employee") Employee employee,@RequestParam("fileImage") MultipartFile multipartFile) throws IOException {
-		// save employee to db
+		//save employee to db
 		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
 		employee.setPhoto(fileName);
 		Employee savedEmployee= employeeService.saveEmployee(employee);
@@ -201,13 +201,12 @@ public class EmployeeController {
 		catch(IOException e) {
 		throw new IOException("Could not save uploaded file: "+ fileName);
 		}
-	
-
-
-
-
 		return "redirect:/employees";
 	}
+
+
+	
+
 
 	@GetMapping("/employees/{id}")
 	public String employeeProfile(@PathVariable(value = "id")int id, Model model){
@@ -226,6 +225,68 @@ public class EmployeeController {
 		model.addAttribute("employee", employee);
 		return "update_employee";
 	}
+
+
+	//update employee handler
+	@PostMapping("/updateEmployee")
+	public String updateHandler(@ModelAttribute("employee") Employee employee,Model m,@RequestParam("fileImage") MultipartFile multipartFile) throws IOException{
+
+		try{
+			//getting old employee details
+			Employee oldEmployee=employeeService.getEmployeeById(employee.getEmpId());
+			//System.out.println("Old Employee Details:"+oldEmployee.getFirstName()+oldEmployee.getPhoto());
+			
+
+			//image
+			if(!multipartFile.isEmpty()){
+					//file work
+					//rewrite
+					String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+					employee.setPhoto(fileName);
+					Employee savedEmployee= employeeService.saveEmployee(employee);
+					String uploadDir ="./employee-photos/" + savedEmployee.getEmpId();
+			
+					Path uploadPath = Paths.get(uploadDir);
+				
+					if(!Files.exists(uploadPath)){
+					Files.createDirectories(uploadPath);
+					
+					}
+				
+					try(InputStream inputStream =multipartFile.getInputStream()){
+					Path filePath=uploadPath.resolve(fileName);
+					System.out.println(filePath);
+					System.out.println(filePath.toFile().getAbsolutePath());
+					System.out.println("above is path");
+					Files.copy(inputStream,filePath, StandardCopyOption.REPLACE_EXISTING);
+					}
+					catch(IOException e) {
+					throw new IOException("Could not save uploaded file: "+ fileName);
+					}
+				
+
+
+			}
+			else{
+				employee.setPhoto(oldEmployee.getPhoto());
+
+			}
+			employeeService.saveEmployee(employee);
+
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		System.out.println("Employee id: "+employee.getEmpId());
+		System.out.println("Employee Name: "+employee.getFirstName());
+		return "redirect:/employees";
+	}
+
+
+
+
+
+
 
 	@GetMapping("/employees/{id}/setInactive")
 	public String setInactive(@PathVariable(value = "id") int id){

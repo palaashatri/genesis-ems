@@ -75,7 +75,7 @@ div.content {
 		<hr>
 		<h2>Update Employee</h2>
 
-		<form action="#" th:action="@{/saveEmployee}" th:object="${employee}"
+		<form action="#" th:action="@{/updateEmployee}" th:object="${employee}"
 			method="POST" enctype="multipart/form-data">
 			
 			<!-- Add hidden form field to handle update -->
@@ -93,7 +93,7 @@ div.content {
         <label>Employee Photo</label>
 				<input type="file" name="fileImage" id="fileImage" accept="image/png, image/jpeg" />
 
-				<img id="thumbnail" alt="Photo Preview"/>
+				<img id="thumbnail" th:src="@{${employee.photoImagePath}}" alt="Photo Preview"/>
 
 			
 				<button type="submit" class="btn btn-info col-2"> Update Employee</button>
