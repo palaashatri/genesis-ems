@@ -24,10 +24,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 		System.out.print(employeeDao.findAll());
 		return employeeDao.findAll();
 	}
+	
 	@Override
-	public void saveEmployee(Employee employee)
+	public Employee saveEmployee(Employee employee)
 	{
-			this.employeeDao.save(employee);
+			return employeeDao.save(employee);
 	}
 	@Override
 	public Employee getEmployeeById(int id) {

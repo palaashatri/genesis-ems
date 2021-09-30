@@ -7,7 +7,7 @@ import com.ltts.project.ems.model.Employee;
 public interface EmployeeService {
 
 	List<Employee> getAllEmployees();
-	void saveEmployee(Employee employee);
+	Employee saveEmployee(Employee employee);
 	Employee getEmployeeById(int id);
 
 }

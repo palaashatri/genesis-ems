@@ -25,6 +25,7 @@
 <th>Date of birth</th>
 <th>Role</th>
 <th>Department Id</th>
+<th>Photo</th>
 </tr>
 </thead>
 <tbody>
@@ -40,6 +41,7 @@
 <td th:text="${employee.dateOfBirth}"></td>
 <td th:text="${employee.role}"></td>
 <td th:text="${employee.departmentId}"></td>
+<td><img th:src="@{${employee.photoImagePath}}" style="width:100px;height:100px"/></td>
 <td> <a th:href="@{/employees/{id}(id=${employee.empId})}" class="btn btn-success">View Details</a></td>
 <td> <a th:href="@{/employees/{id}/update(id=${employee.empId})}" class="btn btn-primary">Update</a></td>
 <td><a th:href="@{/employees/{id}/setInactive(id=${employee.empId})}" class="btn btn-danger">Set Inactive</a></td>
