@@ -8,6 +8,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/fontawesome.min.css" integrity="sha512-Rcr1oG0XvqZI1yv1HIg9LgZVDEhf2AHjv+9AuD1JXWGLzlkoKDVvE925qySLcEywpMAYA/rkg296MkvqBF07Yw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -103,56 +104,35 @@
       <th scope="col">Out-Time</th>
       <th scope="col">Status</th>
       <th scope="col">Action</th>
+      <th scope="col">Submit</th>
+     
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Otto</td>
-     <td >
-                    <select>
-                    <option value="">Pending</option>
-                    <option value="">Approve</option>
-                    <option value="">Reject</option>
-                    </select>        
-                </td>
-      
-      
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Otto</td>
+   <tr th:each="attendance: ${listAttendance}">
+   <td th:text="${attendance.attId}"></td>
+   <td th:text="${attendance.empId}"></td>
+      <td th:text="${attendance.inTime}"></td>
+   <td th:text="${attendance.outTime}"></td>
+   <td th:text="${attendance.status}"></td>
        <td >
-                    <select>
-                    <option value="">Pending</option>
+                    <select class="form-control" style="width:auto;">
+                    <option value="">Select</option>
                     <option value="">Approve</option>
                     <option value="">Reject</option>
                     </select>        
                 </td>
-      
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Otto</td>
-       <td >
-                    <select>
-                    <option value="">Pending</option>
-                    <option value="">Approve</option>
-                    <option value="">Reject</option>
-                    </select>        
+                <td>
+             <button type="submit" class="btn btn-info">
+    <i class="icon-circle-arrow-right icon-large"></i> Next
+</button>
                 </td>
-     
+
+
+</tr>
+
       
-    </tr>
+
   </tbody>
 </table>
 

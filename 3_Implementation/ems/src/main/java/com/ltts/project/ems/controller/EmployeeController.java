@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.ltts.project.ems.model.Employee;
+import com.ltts.project.ems.service.AttendanceDaoService;
 import com.ltts.project.ems.service.EmployeeService;
 
 @Controller
@@ -143,6 +144,8 @@ public class EmployeeController {
 	 */
 		
 	@Autowired
+	AttendanceDaoService attendance_service;
+	@Autowired
 	EmployeeService employeeService;
 	
     @GetMapping("/employees") 
@@ -209,11 +212,15 @@ public class EmployeeController {
 		
 		return "loginPage";
 	}
-	@GetMapping("/attendance")
-	public String attendance(Model model){
-		
-		return "attendance";
-	}
-	
+
+	  @GetMapping("/attendance") 
+
+  	public String attendance(Model model)
+  	{
+			// shows employee repository. distributes employees into 2 tables > active and inactive
+  		model.addAttribute("listAttendance",attendance_service.getAllAttendance());
+  		System.out.print(attendance_service.getAllAttendance());
+			return "attendance";
+  	}
 	
     }
