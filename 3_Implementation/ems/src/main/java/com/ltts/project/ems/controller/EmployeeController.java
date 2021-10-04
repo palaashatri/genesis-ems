@@ -300,6 +300,16 @@ public class EmployeeController {
 		return "redirect:/employees";
 	}
 	
+	@GetMapping("/employees/{id}/setActive")
+	public String setActive(@PathVariable(value = "id") int id){
+
+		// set employee state as inactive
+		Employee employee = employeeService.getEmployeeById(id);
+		employee.setIsActive("true");
+		employeeService.saveEmployee(employee);
+		return "redirect:/employees";
+	}
+	
 	
 	@GetMapping("/signupPage")
 	public String signupPage(Model model){
