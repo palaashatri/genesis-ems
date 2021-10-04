@@ -19,8 +19,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-
-
+import com.ltts.project.ems.model.Attendance;
 import com.ltts.project.ems.model.Employee;
 import com.ltts.project.ems.service.AttendanceDaoService;
 import com.ltts.project.ems.service.EmployeeService;
@@ -323,5 +322,12 @@ public class EmployeeController {
   		System.out.print(attendance_service.getAllAttendance());
 			return "attendance";
   	}
+
+	  @GetMapping("/attendance/new")
+	  public String newAttendanceForm(Model model){
+		  Attendance attendance = new Attendance();
+		  model.addAttribute("attendance", attendance);
+		  return "new_attendance";
+	  }
 	
     }
