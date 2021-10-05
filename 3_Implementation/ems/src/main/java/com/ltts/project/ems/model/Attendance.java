@@ -14,15 +14,15 @@ public class Attendance {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int attId;
     private int empId;
-    private LocalDateTime inTime;
-    private LocalDateTime outTime;
+    private String inTime;
+    private String outTime;
     private String  status;
 
     
 
     public Attendance() {
     }
-    public Attendance(int attId, int empId, LocalDateTime inTime, LocalDateTime outTime, String status) {
+    public Attendance(int attId, int empId, String inTime, String outTime, String status) {
         this.attId = attId;
         this.empId = empId;
         this.inTime = inTime;
@@ -41,16 +41,16 @@ public class Attendance {
     public void setEmpId(int empId) {
         this.empId = empId;
     }
-    public LocalDateTime getInTime() {
+    public String getInTime() {
         return inTime;
     }
-    public void setInTime(LocalDateTime inTime) {
+    public void setInTime(String inTime) {
         this.inTime = inTime;
     }
-    public LocalDateTime getOutTime() {
+    public String getOutTime() {
         return outTime;
     }
-    public void setOutTime(LocalDateTime outTime) {
+    public void setOutTime(String outTime) {
         this.outTime = outTime;
     }
     public String getStatus() {
