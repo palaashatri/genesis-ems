@@ -362,12 +362,19 @@ public class EmployeeController {
 
 	}
 
+
 	@GetMapping("/attendance/{id}/reject")
-	public String rejectAttendance()
+	public String rejectAttendance(@PathVariable(value = "id") int id)
 	{
-        return null;
-		
+		Attendance attendance=attendance_service.getAttendanceById(id);
+		attendance.setStatus("Rejected");
+		attendance_service.updateAttendance(attendance);
+		return "redirect:/attendance";
+
+
 	}
+
+
 
 
 
