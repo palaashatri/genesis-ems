@@ -104,7 +104,7 @@
       <th scope="col">Out-Time</th>
       <th scope="col">Status</th>
       <th scope="col">Action</th>
-      <th scope="col">Submit</th>
+      
      
     </tr>
   </thead>
@@ -115,18 +115,14 @@
       <td th:text="${attendance.inTime}"></td>
    <td th:text="${attendance.outTime}"></td>
    <td th:text="${attendance.status}"></td>
-       <td >
-                    <select class="form-control" style="width:auto;">
-                    <option value="">Select</option>
-                    <option value="Approve">Approve</option>
-                    <option value="Reject">Reject</option>
-                    </select>        
-                </td>
-                <td>
-             <button type="submit" class="btn btn-info">
-    <i class="icon-circle-arrow-right icon-large"></i> Next
-</button>
-                </td>
+   <td> <span  th:switch="${attendance.status}">
+    <span th:case="'Pending'"><button th:href="@{/attendance/{id}/accept}">Accept</button><button th:href="/attendance/{id}/reject">Reject</button></span>
+    
+
+   </span>
+</td>
+      
+       
 
 
 </tr>

@@ -348,7 +348,22 @@ public class EmployeeController {
 
 		
 	
-		return "redirect:/employees";
+		return "redirect:/attendance";
+	}
+
+	@GetMapping("/attendance/{id}/accept")
+	public String acceptAttendance()
+	{
+		return null;
+
+
+	}
+
+	@GetMapping("/attendance/{id}/reject")
+	public String rejectAttendance()
+	{
+        return null;
+		
 	}
 
 
