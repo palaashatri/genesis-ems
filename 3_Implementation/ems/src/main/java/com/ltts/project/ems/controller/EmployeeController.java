@@ -378,6 +378,8 @@ public class EmployeeController {
 
 
 
+
+
 	// public String setActive(@PathVariable(value = "id") int id){
 
 	// 	// set employee state as inactive
