@@ -339,5 +339,17 @@ public class EmployeeController {
 		  model.addAttribute("attendance", attendance);
 		  return "new_attendance";
 	  }
+	 @PostMapping("/saveAttendance")
+	 public String saveAttendance(@ModelAttribute("attendance") Attendance attendance)  {
+		//save employee to db
+		
+		Attendance savedAttendance= attendance_service.insertAttendance(attendance);
+		
+
+		
 	
+		return "redirect:/employees";
+	}
+
+
     }
