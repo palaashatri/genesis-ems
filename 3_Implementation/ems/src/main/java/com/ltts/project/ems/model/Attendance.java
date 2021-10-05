@@ -2,11 +2,14 @@ package com.ltts.project.ems.model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Attendance {
@@ -14,15 +17,17 @@ public class Attendance {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int attId;
     private int empId;
-    private String inTime;
-    private String outTime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    private Date inTime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    private Date outTime;
     private String  status;
 
     
 
     public Attendance() {
     }
-    public Attendance(int attId, int empId, String inTime, String outTime, String status) {
+    public Attendance(int attId, int empId, Date inTime, Date outTime, String status) {
         this.attId = attId;
         this.empId = empId;
         this.inTime = inTime;
@@ -41,16 +46,16 @@ public class Attendance {
     public void setEmpId(int empId) {
         this.empId = empId;
     }
-    public String getInTime() {
+    public Date getInTime() {
         return inTime;
     }
-    public void setInTime(String inTime) {
+    public void setInTime(Date inTime) {
         this.inTime = inTime;
     }
-    public String getOutTime() {
+    public Date getOutTime() {
         return outTime;
     }
-    public void setOutTime(String outTime) {
+    public void setOutTime(Date outTime) {
         this.outTime = outTime;
     }
     public String getStatus() {
