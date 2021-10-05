@@ -352,9 +352,12 @@ public class EmployeeController {
 	}
 
 	@GetMapping("/attendance/{id}/accept")
-	public String acceptAttendance()
+	public String acceptAttendance(@PathVariable(value = "id") int id)
 	{
-		return null;
+		Attendance attendance=attendance_service.getAttendanceById(id);
+		attendance.setStatus("Approved");
+		attendance_service.updateAttendance(attendance);
+		return "redirect:/attendance";
 
 
 	}
@@ -365,6 +368,18 @@ public class EmployeeController {
         return null;
 		
 	}
+
+
+
+	// public String setActive(@PathVariable(value = "id") int id){
+
+	// 	// set employee state as inactive
+	// 	Employee employee = employeeService.getEmployeeById(id);
+	// 	employee.setIsActive("true");
+	// 	employeeService.saveEmployee(employee);
+	// 	return "redirect:/employees";
+	// }
+	
 
 
     }
