@@ -21,7 +21,7 @@ public class Attendance {
     private Date inTime;
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date outTime;
-    private String  status;
+    private String  status = "Pending";
 
     
 
