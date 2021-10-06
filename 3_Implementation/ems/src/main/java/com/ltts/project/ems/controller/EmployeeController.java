@@ -216,6 +216,17 @@ public class EmployeeController {
 		model.addAttribute("employee", employee);
 		return "employee_profile";
 	}
+//Emp dash
+@GetMapping("/employeeDashboard/{id}")
+	public String employeeDashboard(@PathVariable(value = "id")int id, Model model){
+		Employee employee = employeeService.getEmployeeById(id);
+		model.addAttribute("employee", employee);
+		return "employeeDashboard";
+	}
+	//end
+
+
+
     
     @GetMapping("/employees/{id}/update")
 	public String showFormForUpdate(@PathVariable ( value = "id") int id, Model model) {
@@ -227,6 +238,20 @@ public class EmployeeController {
 		model.addAttribute("employee", employee);
 		return "update_employee";
 	}
+
+//update emp dashboard
+@GetMapping("/employeeDashboard/{id}/update")
+public String updateEmpDashboard(@PathVariable ( value = "id") int id, Model model) {
+	
+	// fetch employee data from db, put them into form and update them into form
+	Employee employee = employeeService.getEmployeeById(id);
+	
+	
+	model.addAttribute("employee", employee);
+	return "update_employee_dashboard";
+}
+
+
 
 
 	//update employee handler
@@ -284,6 +309,62 @@ public class EmployeeController {
 		return "redirect:/employees";
 	}
 
+//Emp update
+
+	//update employee handler
+	@PostMapping("/updateEmployeeDashboard")
+	public String updateEmployeeDashboard(@ModelAttribute("employee") Employee employee,Model m,@RequestParam("fileImage") MultipartFile multipartFile) throws IOException{
+
+		try{
+			//getting old employee details
+			Employee oldEmployee=employeeService.getEmployeeById(employee.getEmpId());
+			//System.out.println("Old Employee Details:"+oldEmployee.getFirstName()+oldEmployee.getPhoto());
+			
+
+			//image
+			if(!multipartFile.isEmpty()){
+					//file work
+					//rewrite
+					String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+					employee.setPhoto(fileName);
+					Employee savedEmployee= employeeService.saveEmployee(employee);
+					String uploadDir ="./employee-photos/" + savedEmployee.getEmpId();
+			
+					Path uploadPath = Paths.get(uploadDir);
+				
+					if(!Files.exists(uploadPath)){
+					Files.createDirectories(uploadPath);
+					
+					}
+				
+					try(InputStream inputStream =multipartFile.getInputStream()){
+					Path filePath=uploadPath.resolve(fileName);
+					System.out.println(filePath);
+					System.out.println(filePath.toFile().getAbsolutePath());
+					System.out.println("above is path");
+					Files.copy(inputStream,filePath, StandardCopyOption.REPLACE_EXISTING);
+					}
+					catch(IOException e) {
+					throw new IOException("Could not save uploaded file: "+ fileName);
+					}
+				
+
+
+			}
+			else{
+				employee.setPhoto(oldEmployee.getPhoto());
+
+			}
+			employeeService.saveEmployee(employee);
+
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		System.out.println("Employee id: "+employee.getEmpId());
+		System.out.println("Employee Name: "+employee.getFirstName());
+		return "redirect:/attendance/new";
+	}
 
 
 
