@@ -42,16 +42,16 @@
 <td th:text="${employee.role}"></td>
 <td th:text="${employee.departmentId}"></td>
 <td><img th:src="@{${employee.photoImagePath}}" style="width:100px;height:100px"/></td>
-<td> <a th:href="@{/employees/{id}(id=${employee.empId})}" class="btn btn-success">View Details</a></td>
-<td> <a th:href="@{/employees/{id}/update(id=${employee.empId})}" class="btn btn-primary">Update</a></td>
+<td> <a th:href="@{/admin/employees/{id}(id=${employee.empId})}" class="btn btn-success">View Details</a></td>
+<td> <a th:href="@{/admin/employees/{id}/update(id=${employee.empId})}" class="btn btn-primary">Update</a></td>
 <td th:with="isActive = ${employee.isActive}">
-	<span th:if="${isActive}"><a th:href="@{/employees/{id}/setInactive(id=${employee.empId})}" class="btn btn-danger">Set Inactive</a> </span>
-	<span th:unless="${isActive}"><a th:href="@{/employees/{id}/setActive(id=${employee.empId})}" class="btn btn-warning">Set Active</a></span>
+	<span th:if="${isActive}"><a th:href="@{/admin/employees/{id}/setInactive(id=${employee.empId})}" class="btn btn-danger">Set Inactive</a> </span>
+	<span th:unless="${isActive}"><a th:href="@{/admin/employees/{id}/setActive(id=${employee.empId})}" class="btn btn-warning">Set Active</a></span>
 </td>
 <td></td>
 </tbody>
 </table>
-<a th:href="@{/employees/new}" class="btn btn-primary btn-sm mb-3">Add New Employee</a>
+<a th:href="@{/admin/employees/new}" class="btn btn-primary btn-sm mb-3">Add New Employee</a>
 </div>
 </body>
 </html>

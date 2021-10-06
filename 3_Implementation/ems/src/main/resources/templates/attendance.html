@@ -30,32 +30,32 @@
             </div>
             <ul class="nav flex-column pt-3">
               <li class="nav-item">
-                <a class="nav-link text-light" th:href="@{/employees}">
+                <a class="nav-link text-light" th:href="@{/admin}">
                   <span data-feather="home"></span>
                   Dashboard
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light" th:href="@{/employees/new}">
+                <a class="nav-link text-light" th:href="@{/admin/employees/new}">
                   <span data-feather="home"></span>
                   Add Employee
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light" href="/pages/loginPage.html">
+                <a class="nav-link text-light" href="/admin/employees">
                   <span data-feather="file"></span>
-                  Update Employee
+                  View All Employees
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link text-light" href="#">
                   <span data-feather="shopping-cart"></span>
                   Delete Employee
                 </a>
-              </li>
+              </li> -->
 
               <li class="nav-item">
-                <a class="nav-link text-light" th:href="@{/attendance}" href="#">
+                <a class="nav-link text-light" th:href="@{/admin/attendance}" href="#">
                   <span data-feather="shopping-cart"></span>
                   Attendance Request
                 </a>
@@ -66,11 +66,11 @@
                   Log Out
                 </a>
 
-                <span class="text-muted small d-inline ml-3">
+                <!-- <span class="text-muted small d-inline ml-3">
                   <a class="text-muted" th:href="@{/loginPage}" href="#">Login</a> |
                   <a class="text-muted" th:href="@{/signupPage}" href="#">                  
                     Sign Up</a
-                  >
+                  > -->
                 </span>
               </li>
             </ul>
@@ -116,7 +116,7 @@
    <td th:text="${attendance.outTime}"></td>
    <td th:text="${attendance.status}"></td>
    <td> <span  th:switch="${attendance.status}">
-    <span th:case="'Pending'"><a class="btn btn-success" th:href="@{/attendance/{id}/accept(id=${attendance.attId})}">Accept</a><a class="btn btn-danger" th:href="@{/attendance/{id}/reject(id=${attendance.attId})}">Reject</a></span>
+    <span th:case="'Pending'"><a class="btn btn-success" th:href="@{/admin/attendance/{id}/accept(id=${attendance.attId})}">Accept</a><a class="btn btn-danger" th:href="@{/admin/attendance/{id}/reject(id=${attendance.attId})}">Reject</a></span>
     
 
    </span>
