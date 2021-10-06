@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -80,14 +80,14 @@
           <!-- end: Title -->
           <div class="card">
             <div class="card-body">
-              <form action="#" >
+              <form action="#" th:action = "@{/saveAttendance}" th:object="${attendance}" method="POST">
                
 
                 <div class="form-group">
                   <label class="text-muted pr-3" for="employee-id"
                     >Employee Id:</label
                   >
-                  <input type="number"  />
+                  <input type="number" th:field="*{empId}" id="employee-id" />
                 </div>
         
                 <!-- <label for = "attendance-date">Date : </label>
@@ -95,16 +95,16 @@
                 <br> -->
                 
                 <div class="form-group">
-                  <label class="text-muted pr-3" for="date-of-joining"
+                  <label class="text-muted pr-3" for="in-time"
                     >In Time</label
                   >
-                  <input type="datetime-local"  />
+                  <input type="datetime-local"  id="in-time" th:field="*{inTime}"/>
                 </div>
                 <div class="form-group">
                   <label class="text-muted pr-3" for="out-time"
                     >Out Time</label
                   >
-                  <input type="datetime-local" id="date"  />
+                  <input type="datetime-local" id="out-time" th:field="*{outTime}"  />
                 </div>
                 <input type="submit" class="btn btn-info" value="Add Regularization Request">
             </form>
