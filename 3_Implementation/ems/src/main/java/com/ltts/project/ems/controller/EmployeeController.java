@@ -348,7 +348,7 @@ public class EmployeeController {
 
 		
 	
-		return "redirect:/attendance";
+		return "redirect:/attendance/new";
 	}
 
 	@GetMapping("/attendance/{id}/accept")
