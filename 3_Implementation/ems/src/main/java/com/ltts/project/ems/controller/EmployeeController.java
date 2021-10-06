@@ -382,6 +382,14 @@ public class EmployeeController {
 
 
 
+	@GetMapping("/regulariseAttendance")
+	public String regulariseAttendance(Model model){
+		
+		return "regulariseAttendance";
+	}
+
+
+
 
 
 

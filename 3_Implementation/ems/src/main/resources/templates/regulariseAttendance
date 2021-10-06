@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,48 +23,47 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-       <!-- start: Sidebar -->
-       <nav class="col-md-2 d-none d-md-block bg-dark sidebar">
-        <div class="sidebar-sticky">
-          <div class="brand text-center p-3">
-            <h4 class="text-muted">Employee Management System</h4>
+        <!-- start: Sidebar -->
+        <nav class="col-md-2 d-none d-md-block bg-dark sidebar">
+          <div class="sidebar-sticky">
+            <div class="brand text-center p-3">
+              <h4 class="text-muted">Employee Management System</h4>
+            </div>
+            <ul class="nav flex-column pt-3">
+              <li class="nav-item">
+                <a class="nav-link text-light" th:href="@{/employees}">
+                  <span data-feather="home"></span>
+                  Dashboard
+                </a>
+              </li>
+             
+              <li class="nav-item">
+                <a class="nav-link text-light" href="#">
+                  <span data-feather="file"></span>
+                  Update Profile
+                </a>
+              </li>
+             
+
+              <li class="nav-item">
+                <a class="nav-link text-light" th:href="@{/attendance}" href="#">
+                  <span data-feather="shopping-cart"></span>
+                  Regularise Attendance 
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="#">
+                  <span data-feather="layers"></span>
+                  Log Out
+                </a>
+
+                 
+              </li>
+            </ul>
           </div>
-          <ul class="nav flex-column pt-3">
-            <li class="nav-item">
-              <a class="nav-link text-light" th:href="@{/employees}">
-                <span data-feather="home"></span>
-                Dashboard
-              </a>
-            </li>
-           
-            <li class="nav-item">
-              <a class="nav-link text-light" href="#">
-                <span data-feather="file"></span>
-                Update Profile
-              </a>
-            </li>
-           
+        </nav>
 
-            <li class="nav-item">
-              <a class="nav-link text-light" th:href="@{/attendance}" href="#">
-                <span data-feather="shopping-cart"></span>
-                Regularise Attendance 
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-light" href="#">
-                <span data-feather="layers"></span>
-                Log Out
-              </a>
-
-               
-            </li>
-          </ul>
-        </div>
-      </nav>
-
-      <!-- end: Sidebar -->
-        <!-- start: Content -->
+        <!-- end: Sidebar -->
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <!-- start: Title -->
           <div
@@ -75,7 +76,7 @@
               border-bottom
             "
           >
-            <h1 class="h3">Welcome USER!</h1>
+            <h1 class="h3">Employee Details</h1>
           </div>
           <!-- end: Title -->
           <!-- start: Form -->
@@ -139,13 +140,13 @@
                 </div>
 
                 <!-- Gender -->
-                <div class="form-group" >
-                  <input
-                  type="text"
-                  class="form-control"
-                  id="exampleInputPassword1"
-                  placeholder="Gender" disabled
-                />
+                <div class="form-group">
+                  <select class="form-control" id="roleSelect">
+                    <option>Select Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                  </select>
                 </div>
 
                 <!-- Date of Joining -->
@@ -153,23 +154,23 @@
                   <label class="text-muted pr-3" for="date-of-joining"
                     >Date Of Joining</label
                   >
-                  <input type="text" id="date" value="2021-10-01" disabled/>
+                  <input type="date" id="date" />
                 </div>
 
                 <!-- DOB -->
                 <div class="form-group">
                   <label class="text-muted pr-3" for="dob">Date Of Birth</label>
-                  <input type="date" id="date" value="1998-10-07"/>
+                  <input type="date" id="date" />
                 </div>
 
                 <!-- Role -->
                 <div class="form-group">
-                  <input
-                  type="text"
-                  class="form-control"
-                  id="exampleInputRole"
-                  placeholder="Software Engineer" 
-                />
+                  <select class="form-control" id="roleSelect">
+                    <option>Select Role</option>
+                    <option>Software Engineer</option>
+                    <option>Software Tester</option>
+                    <option>Other</option>
+                  </select>
                 </div>
 
                 <!-- Upload Image -->
@@ -181,16 +182,28 @@
                   />
                 </div>
 
-             
+                <!-- Active -->
+                <div class="form-group ml-4">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="defaultCheck1"
+                  />
+                  <label class="form-check-label" for="defaultCheck1">
+                    Is Active
+                  </label>
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
             </div>
           </div>
           <!-- endL Form -->
         </main>
-        <!-- end: Content -->
-      </div>
-    </div>
+        </div>
+        </div>
+        </body>
+        
 
     <!-- Bootstrap -->
     <script
