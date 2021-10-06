@@ -228,7 +228,7 @@ public String rejectAttendance(@PathVariable(value = "id") int id)
 
 //===============Employee routes====================
 // view employee dashboard
-@GetMapping("/employee/{id}/dashboard/")
+@GetMapping("/employee/{id}/dashboard")
 	public String employeeDashboard(@PathVariable(value = "id")int id, Model model){
 		Employee employee = employeeService.getEmployeeById(id);
 		model.addAttribute("employee", employee);
@@ -302,7 +302,7 @@ public String updateEmpDashboard(@PathVariable ( value = "id") int id, Model mod
 		}
 		System.out.println("Employee id: "+employee.getEmpId());
 		System.out.println("Employee Name: "+employee.getFirstName());
-		return "redirect:/attendance/new";
+		return "redirect:/employee/"+employee.getEmpId()+"/dashboard";
 	}
 
 
@@ -339,8 +339,22 @@ public String updateEmpDashboard(@PathVariable ( value = "id") int id, Model mod
 	// 	return "regulariseAttendance";
 	// }
 
+	@GetMapping("/employee/{id}/regularise")
+	public String regulariseAttendance(@PathVariable (value = "id") int id, Model model){
+		Employee employee = employeeService.getEmployeeById(id);
+		model.addAttribute("employee", employee);
+		Attendance attendance = new Attendance();
+	model.addAttribute("attendance", attendance);
+		return "regulariseAttendance";
+	}
 
 
+	@PostMapping("/saveAttendanceDashboard")
+	public String saveAttendanceDashboard(@ModelAttribute("attendance") Attendance attendance)  {
+	  //save attendance to db  
+	  Attendance savedAttendance= attendance_service.insertAttendance(attendance);
+	  return "redirect:/admin/attendance/new";
+	}
 
 
 

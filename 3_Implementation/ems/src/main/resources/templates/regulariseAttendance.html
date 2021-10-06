@@ -29,14 +29,14 @@
           </div>
           <ul class="nav flex-column pt-3">
             <li class="nav-item">
-              <a class="nav-link text-light" th:href="@{/employees}">
+              <a class="nav-link text-light" th:href="@{/employee/{id}/dashboard(id = ${employee.empId})}">
                 <span data-feather="home"></span>
                 Dashboard
               </a>
             </li>
            
             <li class="nav-item">
-              <a class="nav-link text-light" href="#">
+              <a class="nav-link text-light"  th:href="@{/employee/{id}/update(id = ${employee.empId})}" href="#">
                 <span data-feather="file"></span>
                 Update Profile
               </a>
@@ -44,7 +44,7 @@
            
 
             <li class="nav-item">
-              <a class="nav-link text-light" th:href="@{/attendance}" href="#">
+              <a class="nav-link text-light" th:href="@{/employee/{id}/regularise(id=${employee.empId})}">
                 <span data-feather="shopping-cart"></span>
                 Regularise Attendance 
               </a>
@@ -80,7 +80,7 @@
           <!-- end: Title -->
           <div class="card">
             <div class="card-body">
-              <form action="#" th:action = "@{/saveAttendance}" th:object="${attendance}" method="POST">
+              <form action="#" th:action = "@{/saveAttendanceDashboard}" th:object="${attendance}" method="POST">
                
 
                 <div class="form-group">
