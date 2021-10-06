@@ -1,7 +1,6 @@
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -31,34 +30,34 @@
             </div>
             <ul class="nav flex-column pt-3">
               <li class="nav-item">
-                <a class="nav-link text-light" th:href="@{/employees}">
+                <a class="nav-link text-light" th:href="@{/admin}">
                   <span data-feather="home"></span>
                   Dashboard
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light" th:href="@{/employees/new}">
+                <a class="nav-link text-light" th:href="@{/admin/employees/new}">
                   <span data-feather="home"></span>
                   Add Employee
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link text-light" href="/pages/loginPage.html">
                   <span data-feather="file"></span>
                   Update Employee
                 </a>
-              </li>
-              <li class="nav-item">
+              </li> -->
+              <!-- <li class="nav-item">
                 <a class="nav-link text-light" href="#">
                   <span data-feather="shopping-cart"></span>
                   Delete Employee
                 </a>
-              </li>
+              </li> -->
 
               <li class="nav-item">
-                <a class="nav-link text-light" th:href="@{/attendance}" href="#">
+                <a class="nav-link text-light" th:href="@{/admin/attendance}" href="#">
                   <span data-feather="shopping-cart"></span>
-                  Attendance Request
+                  Manage Attendance Requests
                 </a>
               </li>
               <li class="nav-item">
@@ -66,13 +65,13 @@
                   <span data-feather="layers"></span>
                   Log Out
                 </a>
-
+<!-- 
                 <span class="text-muted small d-inline ml-3">
                   <a class="text-muted" th:href="@{/loginPage}" href="#">Login</a> |
                   <a class="text-muted" th:href="@{/signupPage}" href="#">                  
                     Sign Up</a
                   >
-                </span>
+                </span> -->
               </li>
             </ul>
           </div>

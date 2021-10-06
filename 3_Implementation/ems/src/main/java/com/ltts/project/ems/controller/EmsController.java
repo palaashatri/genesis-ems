@@ -37,20 +37,25 @@ public class EmsController {
 				
 
 				return new ModelAndView("Invalid_user");
-			} else if(theEmployee.getRole().equals("Associate Engineer")) {
+			} else if(theEmployee.getRole().equals("ADMIN")) {
+
+				return new ModelAndView("admin");
+
+			}
+			else if(theEmployee.getRole().equals("admin")) {
 
 				return new ModelAndView("admin");
 
 			}
 
-			else if(theEmployee.getRole().equals("USER")) {
+			else if(theEmployee.getRole().equals("Admin")) {
 
-				return new ModelAndView("Invalid_user");
+				return new ModelAndView("admin");
 
 			}
 			else
-			{   System.out.println(theEmployee.getRole());
-				return new ModelAndView("Invalid_user");
+			{   
+				return new ModelAndView("employee_profile");
 			}
 
 		}
