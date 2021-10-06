@@ -392,17 +392,17 @@ public String updateEmpDashboard(@PathVariable ( value = "id") int id, Model mod
 	}
 	
 	
-	@GetMapping("/signupPage")
-	public String signupPage(Model model){
+	// @GetMapping("/signupPage")
+	// public String signupPage(Model model){
 		
-		return "signupPage";
-	}
+	// 	return "signupPage";
+	// }
 	
-	@GetMapping("/loginPage")
-	public String loginPage(Model model){
+	// @GetMapping("/loginPage")
+	// public String loginPage(Model model){
 		
-		return "loginPage";
-	}
+	// 	return "loginPage";
+	// }
 
 	  @GetMapping("/attendance") 
 
