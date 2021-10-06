@@ -374,6 +374,12 @@ public class EmployeeController {
 
 	}
 
+	@GetMapping("/employeeDashboard")
+	public String employeeDashboard(Model model){
+		
+		return "employeeDashboard";
+	}
+
 
 
 
