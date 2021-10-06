@@ -32,7 +32,10 @@ public class EmployeeController {
 	@Autowired
 	EmployeeService employeeService;
 	
-    @GetMapping("/employees") 
+	// =========admin routes=============
+
+	// show all employees
+    @GetMapping("/admin/employees") 
 
     	public String viewHomePage(Model model)
     	{
@@ -41,7 +44,9 @@ public class EmployeeController {
     		System.out.print(employeeService.getAllEmployees());
 			return "employees";
     	}
-     @GetMapping("/employees/new")
+
+	// create new employee
+     @GetMapping("/admin/employees/new")
 	 public String showNewEmployeeForm(Model model) {
 		 // create new employee
 		// create model attribute to bind form data
@@ -50,6 +55,7 @@ public class EmployeeController {
 		return "new_employee";
 	}
 
+	// new employee post
     @PostMapping("/saveEmployee")
 	public String saveEmployee(@ModelAttribute("employee") Employee employee,@RequestParam("fileImage") MultipartFile multipartFile) throws IOException {
 		//save employee to db
@@ -73,32 +79,20 @@ public class EmployeeController {
 		catch(IOException e) {
 		throw new IOException("Could not save uploaded file: "+ fileName);
 		}
-		return "redirect:/employees";
+		return "redirect:/admin/employees";
 	}
 
 
-	
-
-
-	@GetMapping("/employees/{id}")
+	// view employee details 
+	@GetMapping("/admin/employees/{id}")
 	public String employeeProfile(@PathVariable(value = "id")int id, Model model){
 		Employee employee = employeeService.getEmployeeById(id);
 		model.addAttribute("employee", employee);
 		return "employee_profile";
 	}
-//Emp dash
-@GetMapping("/employeeDashboard/{id}")
-	public String employeeDashboard(@PathVariable(value = "id")int id, Model model){
-		Employee employee = employeeService.getEmployeeById(id);
-		model.addAttribute("employee", employee);
-		return "employeeDashboard";
-	}
-	//end
 
-
-
-    
-    @GetMapping("/employees/{id}/update")
+	// update employee details
+	@GetMapping("/admin/employees/{id}/update")
 	public String showFormForUpdate(@PathVariable ( value = "id") int id, Model model) {
 		
 		// fetch employee data from db, put them into form and update them into form
@@ -108,22 +102,6 @@ public class EmployeeController {
 		model.addAttribute("employee", employee);
 		return "update_employee";
 	}
-
-//update emp dashboard
-@GetMapping("/employeeDashboard/{id}/update")
-public String updateEmpDashboard(@PathVariable ( value = "id") int id, Model model) {
-	
-	// fetch employee data from db, put them into form and update them into form
-	Employee employee = employeeService.getEmployeeById(id);
-	
-	
-	model.addAttribute("employee", employee);
-	return "update_employee_dashboard";
-}
-
-
-
-
 	//update employee handler
 	@PostMapping("/updateEmployee")
 	public String updateHandler(@ModelAttribute("employee") Employee employee,Model m,@RequestParam("fileImage") MultipartFile multipartFile) throws IOException{
@@ -176,12 +154,103 @@ public String updateEmpDashboard(@PathVariable ( value = "id") int id, Model mod
 		}
 		System.out.println("Employee id: "+employee.getEmpId());
 		System.out.println("Employee Name: "+employee.getFirstName());
-		return "redirect:/employees";
+		return "redirect:/admin/employees";
 	}
+
+	// set inactive employee
+	@GetMapping("/admin/employees/{id}/setInactive")
+	public String setInactive(@PathVariable(value = "id") int id){
+
+		// set employee state as inactive
+		Employee employee = employeeService.getEmployeeById(id);
+		employee.setIsActive("false");
+		employeeService.saveEmployee(employee);
+		return "redirect:/admin/employees";
+	}
+	
+	// set active employee
+	@GetMapping("/admin/employees/{id}/setActive")
+	public String setActive(@PathVariable(value = "id") int id){
+
+		// set employee state as inactive
+		Employee employee = employeeService.getEmployeeById(id);
+		employee.setIsActive("true");
+		employeeService.saveEmployee(employee);
+		return "redirect:/admin/employees";
+	}
+// ========attendance dashboard===========
+@GetMapping("/admin/attendance") 
+public String attendance(Model model)
+{
+	model.addAttribute("listAttendance",attendance_service.getAllAttendance());
+	System.out.print(attendance_service.getAllAttendance());
+	  return "attendance";
+}
+
+
+@GetMapping("/admin/attendance/new")
+public String newAttendanceForm(Model model){
+	Attendance attendance = new Attendance();
+	model.addAttribute("attendance", attendance);
+	return "new_attendance";
+}
+@PostMapping("/saveAttendance")
+public String saveAttendance(@ModelAttribute("attendance") Attendance attendance)  {
+  //save attendance to db  
+  Attendance savedAttendance= attendance_service.insertAttendance(attendance);
+  return "redirect:/admin/attendance/new";
+}
+
+@GetMapping("/admin/attendance/{id}/accept")
+public String acceptAttendance(@PathVariable(value = "id") int id)
+{
+  Attendance attendance=attendance_service.getAttendanceById(id);
+  attendance.setStatus("Approved");
+  attendance_service.updateAttendance(attendance);
+  return "redirect:/admin/attendance";
+
+
+}
+
+
+@GetMapping("/admin/attendance/{id}/reject")
+public String rejectAttendance(@PathVariable(value = "id") int id)
+{
+  Attendance attendance=attendance_service.getAttendanceById(id);
+  attendance.setStatus("Rejected");
+  attendance_service.updateAttendance(attendance);
+  return "redirect:/admin/attendance";
+
+
+}
+
+	
+
+//===============Employee routes====================
+// view employee dashboard
+@GetMapping("/employee/{id}/dashboard/")
+	public String employeeDashboard(@PathVariable(value = "id")int id, Model model){
+		Employee employee = employeeService.getEmployeeById(id);
+		model.addAttribute("employee", employee);
+		return "employeeDashboard";
+	}
+	
+
+//update employee from dashboard
+@GetMapping("/employee/{id}/update")
+public String updateEmpDashboard(@PathVariable ( value = "id") int id, Model model) {
+	
+	// fetch employee data from db, put them into form and update them into form
+	Employee employee = employeeService.getEmployeeById(id);
+	
+	
+	model.addAttribute("employee", employee);
+	return "update_employee_dashboard";
+}
 
 //Emp update
 
-	//update employee handler
+	//update employee handler from dashboard
 	@PostMapping("/updateEmployeeDashboard")
 	public String updateEmployeeDashboard(@ModelAttribute("employee") Employee employee,Model m,@RequestParam("fileImage") MultipartFile multipartFile) throws IOException{
 
@@ -241,26 +310,6 @@ public String updateEmpDashboard(@PathVariable ( value = "id") int id, Model mod
 
 
 
-	@GetMapping("/employees/{id}/setInactive")
-	public String setInactive(@PathVariable(value = "id") int id){
-
-		// set employee state as inactive
-		Employee employee = employeeService.getEmployeeById(id);
-		employee.setIsActive("false");
-		employeeService.saveEmployee(employee);
-		return "redirect:/employees";
-	}
-	
-	@GetMapping("/employees/{id}/setActive")
-	public String setActive(@PathVariable(value = "id") int id){
-
-		// set employee state as inactive
-		Employee employee = employeeService.getEmployeeById(id);
-		employee.setIsActive("true");
-		employeeService.saveEmployee(employee);
-		return "redirect:/employees";
-	}
-	
 	
 	// @GetMapping("/signupPage")
 	// public String signupPage(Model model){
@@ -274,56 +323,7 @@ public String updateEmpDashboard(@PathVariable ( value = "id") int id, Model mod
 	// 	return "loginPage";
 	// }
 
-	  @GetMapping("/attendance") 
-
-  	public String attendance(Model model)
-  	{
-			// shows employee repository. distributes employees into 2 tables > active and inactive
-  		model.addAttribute("listAttendance",attendance_service.getAllAttendance());
-  		System.out.print(attendance_service.getAllAttendance());
-			return "attendance";
-  	}
-
-	  @GetMapping("/attendance/new")
-	  public String newAttendanceForm(Model model){
-		  Attendance attendance = new Attendance();
-		  model.addAttribute("attendance", attendance);
-		  return "new_attendance";
-	  }
-	 @PostMapping("/saveAttendance")
-	 public String saveAttendance(@ModelAttribute("attendance") Attendance attendance)  {
-		//save employee to db
-		
-		Attendance savedAttendance= attendance_service.insertAttendance(attendance);
-		
-
-		
 	
-		return "redirect:/attendance/new";
-	}
-
-	@GetMapping("/attendance/{id}/accept")
-	public String acceptAttendance(@PathVariable(value = "id") int id)
-	{
-		Attendance attendance=attendance_service.getAttendanceById(id);
-		attendance.setStatus("Approved");
-		attendance_service.updateAttendance(attendance);
-		return "redirect:/attendance";
-
-
-	}
-
-
-	@GetMapping("/attendance/{id}/reject")
-	public String rejectAttendance(@PathVariable(value = "id") int id)
-	{
-		Attendance attendance=attendance_service.getAttendanceById(id);
-		attendance.setStatus("Rejected");
-		attendance_service.updateAttendance(attendance);
-		return "redirect:/attendance";
-
-
-	}
 
 	@GetMapping("/employeeDashboard")
 	public String employeeDashboard(Model model){
