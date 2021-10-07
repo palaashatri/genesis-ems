@@ -93,7 +93,7 @@ div.content {
         <label>Employee Photo</label>
 				<input type="file" name="fileImage" id="fileImage" accept="image/png, image/jpeg" />
 
-				<img id="thumbnail" th:src="@{${employee.photoImagePath}}" alt="Photo Preview"/>
+				<img id="thumbnail" th:src="@{${employee.photoImagePath}}" alt="Photo Preview" width="100" height="100"/>
 
 			
 				<button type="submit" class="btn btn-info col-2"> Update Employee</button>
