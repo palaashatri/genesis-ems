@@ -104,8 +104,8 @@
           <!-- end: Title -->
 		  <div class="card">
             <div class="card-body">
-				<form action="#" th:action="@{/updateEmployee}" th:object="${employee}"
-			method="POST" enctype="multipart/form-data">
+              <form action="#" th:action="@{/updateEmployee}" th:object="${employee}"
+              method="POST" enctype="multipart/form-data">
 			<div class="form-group">
                
 				<b>Employee id</b> 
@@ -143,8 +143,7 @@
 					<div class="form-group">
                 
 						<b>User Name</b> 
-						<input
-						type="text" th:field="*{userName}" class="form-control"
+						<input type="text" th:field="*{userName}"  class="form-control"
 						
 					
 					  /> 
