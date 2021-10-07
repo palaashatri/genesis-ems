@@ -41,7 +41,6 @@ Folder             | Description
 ## Contributors List and Summary
 PS No. |  Name   |    Features    | Issuess Raised |Issues Resolved|No of Test Cases|Test Case Pass
 ---------|-------------|----------------|----------------|---------------|-------------|--------------
-`99004922` | B.Aishwarya  | - | 0   | 0  | 00   | 00
 `99004924` | Supriya Yadav  | - | 0   | 0  | 00   | 00
 `99004930` | Palaash Atri  | - | 0   | 0  | 00   | 00
 `99004934` | Mayank Gupta  | - | 0   | 0  | 00   | 00

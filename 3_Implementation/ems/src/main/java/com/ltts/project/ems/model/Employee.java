@@ -14,13 +14,15 @@ import javax.persistence.Transient;
 
 
 @Entity
+
 public class Employee {
    @Id
    @GeneratedValue(strategy=GenerationType.AUTO)
    private int empId;
    private String firstName;
    private String lastName;
-   private String userName;
+   @Column(unique=true)
+   private String username;
    private String password;
    @DateTimeFormat(pattern="yyyy-MM-dd")
    private LocalDate dateOfJoining;
@@ -138,14 +140,14 @@ public class Employee {
 		public Employee() {
 			super();
 		}
-		public Employee(int empId, String firstName, String lastName, String userName, String password,
+		public Employee(int empId, String firstName, String lastName, String username, String password,
 				LocalDate dateOfJoining, String gender, LocalDate dateOfBirth, String role, int departmentId, String photo,
 				String isActive) {
 			super();
 			this.empId = empId;
 			this.firstName = firstName;
 			this.lastName = lastName;
-			this.userName = userName;
+			this.username = username;
 			this.password = password;
 			this.dateOfJoining = dateOfJoining;
 			this.gender = gender;
@@ -174,10 +176,10 @@ public class Employee {
 			this.lastName = lastName;
 		}
 		public String getUserName() {
-			return userName;
+			return username;
 		}
-		public void setUserName(String userName) {
-			this.userName = userName;
+		public void setUserName(String username) {
+			this.username = username;
 		}
 		public String getPassword() {
 			return password;
@@ -236,8 +238,8 @@ public class Employee {
 		}
 		@Override
 		public String toString() {
-			return "Employee [empId=" + empId + ", firstName=" + firstName + ", lastName=" + lastName + ", userName="
-					+ userName + ", password=" + password + ", dateOfJoining=" + dateOfJoining + ", gender=" + gender
+			return "Employee [empId=" + empId + ", firstName=" + firstName + ", lastName=" + lastName + ", username="
+					+ username + ", password=" + password + ", dateOfJoining=" + dateOfJoining + ", gender=" + gender
 					+ ", dateOfBirth=" + dateOfBirth + ", role=" + role + ", departmentId=" + departmentId + ", photo="
 					+ photo + ", isActive=" + isActive + "]";
 		}
