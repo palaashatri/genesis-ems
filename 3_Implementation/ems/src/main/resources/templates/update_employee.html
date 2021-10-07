@@ -104,135 +104,42 @@
           <!-- end: Title -->
 		  <div class="card">
             <div class="card-body">
-              <form action="#" th:action="@{/updateEmployee}" th:object="${employee}"
-              method="POST" enctype="multipart/form-data">
-			<div class="form-group">
-               
-				<b>Employee id</b> 
-				<input 
-				type="text" 
-				th:field="*{empId}" class="form-control"
-				disabled
-				>
-			</div>
-					<!-- FirstName -->
-					<div class="form-group">
-                
-						<b>First Name</b> 
-						<input
-						type="text"
-						th:field=*{firstName}
-						class="form-control"
-						
-					
-					  /> 
-					  </div>
-					<!-- Lastname -->
-					<div class="form-group">
-                
-						<b>Last Name</b> 
-						<input
-						type="text"
-						th:field="*{lastName}"
-						class="form-control"
-						
-					
-					  /> 
-					</div>
-					<!-- Username -->
-					<div class="form-group">
-                
-						<b>User Name</b> 
-						<input type="text" th:field="*{userName}"  class="form-control"
-						
-					
-					  /> 
-					</div>
-					<!-- Password -->
-					<div class="form-group">
-                
-						<b>Password</b> 
-						<input
-						type="text"
-						th:field="*{password}"
-						class="form-control"
-						
-					
-					  /> 
-					</div>
-					<!-- DOJ -->
-					<div class="form-group">
-                
-						<b>Date of Joining</b> 
-						<input
-						type="date"
-						th:field="*{dateOfJoining}"
-						class="form-control"
-						
-					
-					  /> 
-					</div>
-						<!-- gender -->
-					<div class="form-group">
-                
-						<b>Gender</b> 
-						<input
-						type="text"
-						th:field="*{gender}"
-						class="form-control"
-						
-					
-					  /> 
-					</div>
-					<!-- Dob -->
-					<div class="form-group">
-                
-						<b>Date of Birth</b> 
-						<input
-						type="date"
-						th:field="*{dateOfBirth}"
-						class="form-control"
-						
-					
-					  /> 
-					</div>
-					<!-- Dept id -->
-					<div class="form-group">
-                
-						<b>Department Id</b> 
-						<input
-						type="number"
-						th:field="*{departmentId}"
-						class="form-control"
-						
-					
-					  /> 
-					</div>
-				<!-- Photo -->
-				<div class="form-group">
-                
-					<b>Employee Photo</b> 
-					<input type="file" name="fileImage" id="fileImage" accept="image/png, image/jpeg"
-					class="form-control"
-					
-				
-				  /> 
-				</div>
+            
+		<form action="#" th:action="@{/updateEmployee}" th:object="${employee}"
+    method="POST" enctype="multipart/form-data">
+    
+    <!-- Add hidden form field to handle update -->
+    <b>Employee Id:</b>
+       <input type="number" th:field="*{empId}"
+      placeholder="Id" class="form-control mb-4 col-4">
+      <b>First Name:</b>
+        <input type="text" th:field="*{firstName}" class="form-control mb-4 col-4">
+        <b>Last Name:</b>
+      <input type="text" th:field="*{lastName}" class="form-control mb-4 col-4">
+      <b>Username:</b>
+      <input type="text" th:field="*{userName}" class="form-control mb-4 col-4">
+      <b>Password:</b>
+      <input type="text" th:field="*{password}" class="form-control mb-4 col-4" disabled>
+      <b>Date Of Joining:</b>
+      <input type="date" th:value="*{dateOfJoining}" th:field="*{dateOfJoining}" class="form-control mb-4 col-4">
+      <b>Gender:</b>
+      <input type="text" th:field="*{gender}" class="form-control mb-4 col-4">
+      <b>Date of Birth:</b>
+      <input type="date" th:value="*{dateOfBirth}"  th:field="*{dateOfBirth}" class="form-control mb-4 col-4">
+      <b>Role:</b>
+      <input type="text" th:field="*{role}" class="form-control mb-4 col-4">
+      <b>Department Id:</b>
+      <input type="number" th:field="*{departmentId}" class="form-control mb-4 col-4">
+      <b>Employee Photo:</b>
+      
+      <input type="file" name="fileImage" id="fileImage" accept="image/png, image/jpeg" />
 
+      <img id="thumbnail"  class="rounded-circle" width="100" height="100" th:src="@{${employee.photoImagePath}}" alt="Photo Preview"/>
 
-		<!-- Thumbnail -->
-		<div class="form-group">
-                
-			
-			<img id="thumbnail" class="rounded-circle" th:src="@{${employee.photoImagePath}}" alt="Photo Preview" width="100" height="100"/>
-		</div>
-		
-					
-						<button onClick="myFun()"  type="submit" class="btn btn-info col-2" > Update Employee</button>
-
-
-
-</form>
+    
+      <button type="submit" class="btn btn-info col-2"> Update Employee</button>
+  </form>
+	
 
 			</div>
 		  </div>
