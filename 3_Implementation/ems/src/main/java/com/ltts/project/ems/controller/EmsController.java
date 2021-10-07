@@ -36,7 +36,7 @@ public class EmsController {
 	if (theEmployee == null) {
 				
 
-				return new ModelAndView("Invalid_user");
+				return new ModelAndView("loginPage");
 			} else if(theEmployee.getRole().equals("ADMIN")) {
 
 				return new ModelAndView("admin");
@@ -55,15 +55,16 @@ public class EmsController {
 			}
 			else
 			{   
-				return new ModelAndView("employee_profile");
+				return new ModelAndView("admin");
 			}
 
 		}
 
-    @RequestMapping("/admin")
-	public ModelAndView m1()
-	{
-		return new ModelAndView("admin");
-	}
+		@RequestMapping("/admin")
+		public ModelAndView ADM() {
+			return new ModelAndView("admin");
+		}
+
+   
     
 }
