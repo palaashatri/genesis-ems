@@ -9,5 +9,6 @@ public interface EmployeeService {
 	List<Employee> getAllEmployees();
 	Employee saveEmployee(Employee employee);
 	Employee getEmployeeById(int id);
+	public Employee findByUsernameAndPassword(String username, String password);
 
 }

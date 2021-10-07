@@ -16,6 +16,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
 	private EmployeeDao employeeDao;
+	@Override
+	public Employee findByUsernameAndPassword(String username, String password) {
+		return employeeDao.findByUsernameAndPassword(username, password);
+	}
 
 	@Override
 	public List<Employee> getAllEmployees() {

@@ -4,8 +4,61 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
+import com.ltts.project.ems.model.Employee;
+import com.ltts.project.ems.service.EmployeeService;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+
+import org.springframework.web.bind.annotation.RequestMethod;
+
 @RestController
 public class EmsController {
+	@Autowired
+		EmployeeService emp;
+		String username;
+		String password;
+
+		
+		@RequestMapping("/")
+		public ModelAndView Login() {
+			return new ModelAndView("loginPage");
+		}
+
+		@RequestMapping(value = "login", method = RequestMethod.POST)
+		public ModelAndView LoginAuth(HttpServletRequest request) {
+			username = request.getParameter("usrname");
+			password = request.getParameter("psw");
+			Employee theEmployee = emp.findByUsernameAndPassword(username, password);
+	if (theEmployee == null) {
+				
+
+				return new ModelAndView("Invalid_user");
+			} else if(theEmployee.getRole().equals("ADMIN")) {
+
+				return new ModelAndView("admin");
+
+			}
+			else if(theEmployee.getRole().equals("admin")) {
+
+				return new ModelAndView("admin");
+
+			}
+
+			else if(theEmployee.getRole().equals("Admin")) {
+
+				return new ModelAndView("admin");
+
+			}
+			else
+			{   
+				return new ModelAndView("employee_profile");
+			}
+
+		}
 
     @RequestMapping("/admin")
 	public ModelAndView m1()
