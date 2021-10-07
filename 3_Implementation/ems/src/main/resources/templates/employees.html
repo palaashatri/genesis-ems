@@ -59,6 +59,7 @@
 						Manage Attendance Requests
 					  </a>
 					</li>
+					
 					<li class="nav-item">
 					  <a class="nav-link text-light" href="#">
 						<span data-feather="layers"></span>
@@ -127,11 +128,11 @@
 							<td th:text="${employee.role}"></td>
 							<td th:text="${employee.departmentId}"></td>
 							<td><img class="rounded-circle" th:src="@{${employee.photoImagePath}}" style="width:100px;height:100px"/></td>
-							<td> <a th:href="@{/admin/employees/{id}(id=${employee.empId})}" class="btn btn-success">View Details</a></td>
-							<td> <a th:href="@{/admin/employees/{id}/update(id=${employee.empId})}" class="btn btn-primary">Update</a></td>
+							<td> <a th:href="@{/admin/employees/{id}(id=${employee.empId})}" class="btn btn-light">View Details</a></td>
+							<td> <a th:href="@{/admin/employees/{id}/update(id=${employee.empId})}" class="btn btn-light">Update</a></td>
 							<td th:with="isActive = ${employee.isActive}">
-								<span th:if="${isActive}"><a th:href="@{/admin/employees/{id}/setInactive(id=${employee.empId})}" class="btn btn-secondary">Set Inactive</a> </span>
-								<span th:unless="${isActive}"><a th:href="@{/admin/employees/{id}/setActive(id=${employee.empId})}" class="btn  btn-warning">Set Active</a></span>
+								<span th:if="${isActive}"><a th:href="@{/admin/employees/{id}/setInactive(id=${employee.empId})}" class="btn btn-info">Set Inactive</a> </span>
+								<span th:unless="${isActive}"><a th:href="@{/admin/employees/{id}/setActive(id=${employee.empId})}" class="btn btn-secondary" >Set Active</a></span>
 							</td>
 							<td></td>
 				
