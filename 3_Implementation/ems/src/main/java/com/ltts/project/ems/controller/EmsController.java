@@ -65,5 +65,10 @@ public class EmsController {
 	{
 		return new ModelAndView("admin");
 	}
+
+	@RequestMapping("/logout")
+	public ModelAndView m3(){
+		return new ModelAndView("redirect:/");
+	}
     
 }
