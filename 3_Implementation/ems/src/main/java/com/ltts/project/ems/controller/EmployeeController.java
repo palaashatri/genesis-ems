@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
-
+import org.springframework.data.domain.Page;
 
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -57,8 +57,14 @@ public class EmployeeController {
 			// shows employee repository. distributes employees into 2 tables > active and inactive
     		model.addAttribute("listEmployees",employeeService.getAllEmployees());
     		System.out.print(employeeService.getAllEmployees());
-			return "employees";
+			return findPaginated(1, model);
     	}
+
+		// @GetMapping("/")
+		// public String viewHomePage(Model model) {
+		//  return findPaginated(1, model);  
+		// }
+
 
 	// create new employee
      @GetMapping("/admin/employees/new")
@@ -388,6 +394,21 @@ public String updateEmpDashboard(@PathVariable ( value = "id") int id, Model mod
 	// 	return "redirect:/employees";
 	// }
 	
+	//Pagination
+
+	@GetMapping("/page/{pageNo}")
+public String findPaginated(@PathVariable(value = "pageNo") int pageNo, Model model) {
+    int pageSize = 5;
+
+    Page < Employee > page = employeeService.findPaginated(pageNo, pageSize);
+    List < Employee > listEmployees = page.getContent();
+
+    model.addAttribute("currentPage", pageNo);
+    model.addAttribute("totalPages", page.getTotalPages());
+    model.addAttribute("totalItems", page.getTotalElements());
+    model.addAttribute("listEmployees", listEmployees);
+    return "employees";
+}
 
 
     }
