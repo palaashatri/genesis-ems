@@ -18,7 +18,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-
+import java.util.*;
 import com.ltts.project.ems.model.Attendance;
 import com.ltts.project.ems.model.Employee;
 import com.ltts.project.ems.service.AttendanceDaoService;
@@ -26,6 +26,20 @@ import com.ltts.project.ems.service.EmployeeService;
 
 @Controller
 public class EmployeeController {
+	static List<String> rolesList=null;
+	static{
+		rolesList=new ArrayList<>();
+		rolesList.add("SDE 1");
+		rolesList.add("SDE 2");
+		rolesList.add("SDE 3");
+		rolesList.add("TESTER");
+		rolesList.add("QA");
+		rolesList.add("MANAGER");
+		rolesList.add("CONSULTANT");
+		rolesList.add("HR");
+		rolesList.add("EXECUTIVE");
+	}
+
 		
 	@Autowired
 	AttendanceDaoService attendance_service;
