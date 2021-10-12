@@ -36,6 +36,8 @@ public class EmployeeController {
 		rolesList.add("QA");
 		rolesList.add("MANAGER");
 		rolesList.add("CONSULTANT");
+		rolesList.add("HR");
+		rolesList.add("EXECUTIVE");
 	}
 
 		

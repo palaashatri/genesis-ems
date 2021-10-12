@@ -149,16 +149,12 @@
 					<!-- <input
 					type="text" th:field="*{role}"
 					class="form-control"> -->
-          <select name="role">
-            <option 
-            th:each = "role : ${rolesList}"
-            th:text="${role}"
-           
-            />
+         <select name="role">
+           <option th:each="role: ${rolesList}"
+           th:text="${role}"/>
 
-          </select>
-
-
+         </select>
+         
 			</div>
 				
 				<!--Doj name-->
