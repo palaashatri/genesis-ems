@@ -146,9 +146,18 @@
 				<!--role name-->
 				<div class="form-group">
 					<b>Role </b>
-					<input
+					<!-- <input
 					type="text" th:field="*{role}"
-					class="form-control">
+					class="form-control"> -->
+          <select name="role">
+            <option 
+            th:each = "role : ${rolesList}"
+            th:text="${role}"
+           
+            />
+
+          </select>
+
 
 			</div>
 				
