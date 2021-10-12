@@ -26,8 +26,14 @@ It provides you with mentioned services:
 ## Folder Structure
 Folder             | Description
 -------------------| -----------------------------------------
-`folder1`          | Description
-`folder2`          | Description
+`1_Requirements`      | Contains Reasearch,SWOT Analysis,4W's 1H, High and Low Level Requirement Analysis
+`2_Architecture`      | Contains High and Low Level Diagrams
+`3_Implementation`    | Contains Actual Code
+`4_TestPlanAndOutput` | Contains Test Plan
+`5_ImagesAndVideos`   | Contains EMS Video
+`6_Others`            | -
+`7_Report`            | Contains Report and PPT 
+
 
 
 
