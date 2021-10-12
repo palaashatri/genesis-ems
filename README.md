@@ -60,17 +60,14 @@ PS No. |  Name   |    Features    | Issuess Raised |Issues Resolved|No of Test C
 
 
 
-<!-- ## Challenges Faced and How Was It Overcome
-| No. | Challenge | Solution
-|-----|-----------|--------
-|1. | There is no such mutli scheme Maturity-calculator right now in the market | Implemented successfully with the help of functions
-|2. | For Term and Recurring deposit various rate schemes can be applied, which thus result into maturity amount which is always not available in the current market.| Implemented successfully with the help of storage space of c variables. |
-| 3. | Make file not working even after following all steps  | Added make to environment variables  | 
 
 ## Pre-requisites:
 ```sh
-# 1. Install pytest
-  pip3 install pytest
+# 1. Download & Install Java 11
+# 2. Download & Install VS code with STS extension
+# 3. Download & Install MySQL 8.0.* 
+
+
 
 ```    
 
@@ -85,6 +82,6 @@ PS No. |  Name   |    Features    | Issuess Raised |Issues Resolved|No of Test C
 # 4. For Running the pytest verbose command in source_code directory
   py.test -v  
 ```    
--->
+
 
 
