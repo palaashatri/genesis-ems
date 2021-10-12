@@ -11,10 +11,11 @@
 
 
 ## Features of the application
-It provides you with mentioned services:
-
-* Feature 1
-* Feature 2
+It provides you with following features:
+* It allows employee to update some of his details with certain restrictions.
+* It allows employee to send attendance request for regularisation.
+* It allows admin to do basic CRUD operations on employee.
+* It allows admin to accept/reject employee's attendance.
 
 
 
@@ -45,12 +46,12 @@ Folder             | Description
 
 
 ## Contributors List and Summary
-PS No. |  Name   |    Features    | Issuess Raised |Issues Resolved|No of Test Cases|Test Case Pass
----------|-------------|----------------|----------------|---------------|-------------|--------------
-`99004924` | Supriya Yadav  | - | 0   | 0  | 00   | 00
-`99004930` | Palaash Atri  | - | 0   | 0  | 00   | 00
-`99004934` | Mayank Gupta  | - | 0   | 0  | 00   | 00
-`99004936` | Shubham Phansekar  | - | 0   | 0  | 00   | 00
+PS No. |  Name   |    Features    | Issuess Raised |Issues Resolved|
+---------|-------------|----------------|----------------|---------------
+`99004924` | Supriya Yadav  | - | 0   | 0  
+`99004930` | Palaash Atri  | - | 0   | 0  
+`99004934` | Mayank Gupta  | - | 0   | 0  
+`99004936` | Shubham Phansekar  | - | 0   | 0  
 
 
 
