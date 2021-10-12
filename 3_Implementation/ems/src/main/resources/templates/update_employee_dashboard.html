@@ -96,17 +96,17 @@
     <!-- Add hidden form field to handle update -->
     <div style="pointer-events: none;"><b>Employee Id:</b>
       <input type="number" th:field="*{empId}"
-     placeholder="Id" class="form-control "></div>
+     placeholder="Id" class="form-control " ></div>
     <div> <b>First Name:</b>
-      <input type="text" th:field="*{firstName}" class="form-control "></div>
+      <input type="text" th:field="*{firstName}" class="form-control " required="required" ></div>
      
         <div>
           <b>Last Name:</b>
-      <input type="text" th:field="*{lastName}" class="form-control ">
+      <input type="text" th:field="*{lastName}" class="form-control " required="required">
         </div>
       <div>
         <b>Username:</b>
-      <input type="text" th:field="*{userName}" class="form-control ">
+      <input type="text" th:field="*{userName}" class="form-control "  required="required">
       </div>
       
       <!-- <div>
@@ -120,11 +120,11 @@
       <input type="text" th:field="*{gender}" class="form-control ">
     </div>
       <b>Date of Birth:</b>
-      <input type="date" th:value="*{dateOfBirth}"  th:field="*{dateOfBirth}" class="form-control">
+      <input type="date" th:value="*{dateOfBirth}"  th:field="*{dateOfBirth}" class="form-control" required="required">
       <b>Role:</b>
-      <input type="text" th:field="*{role}" class="form-control ">
+      <input type="text" th:field="*{role}" class="form-control " required="required">
       <b>Department Id:</b>
-      <input type="number" th:field="*{departmentId}" class="form-control ">
+      <input type="number" th:field="*{departmentId}" class="form-control "  required="required">
       <b>Employee Photo:</b>
       
       <input type="file" name="fileImage" id="fileImage" accept="image/png, image/jpeg" />
