@@ -36,7 +36,7 @@ public class EmsController {
 	if (theEmployee == null) {
 				
 
-				return new ModelAndView("Invalid_user");
+				return new ModelAndView("loginPage");
 			} else if(theEmployee.getRole().equals("ADMIN")) {
 
 				return new ModelAndView("admin");

@@ -104,6 +104,8 @@ public class EmployeeController {
 	public String employeeProfile(@PathVariable(value = "id")int id, Model model){
 		Employee employee = employeeService.getEmployeeById(id);
 		model.addAttribute("employee", employee);
+		
+		
 		return "employee_profile";
 	}
 
@@ -115,6 +117,7 @@ public class EmployeeController {
 		Employee employee = employeeService.getEmployeeById(id);
 		
 		
+		model.addAttribute("rolesList",rolesList);
 		model.addAttribute("employee", employee);
 		return "update_employee";
 	}
@@ -260,6 +263,7 @@ public String updateEmpDashboard(@PathVariable ( value = "id") int id, Model mod
 	Employee employee = employeeService.getEmployeeById(id);
 	
 	
+	model.addAttribute("rolesList",rolesList);
 	model.addAttribute("employee", employee);
 	return "update_employee_dashboard";
 }

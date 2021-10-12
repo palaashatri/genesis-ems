@@ -121,8 +121,18 @@
     </div>
       <b>Date of Birth:</b>
       <input type="date" th:value="*{dateOfBirth}"  th:field="*{dateOfBirth}" class="form-control" required="required">
+      <div>
       <b>Role:</b>
-      <input type="text" th:field="*{role}" class="form-control " required="required">
+      <!-- <input type="text" th:field="*{role}" class="form-control " required="required"> -->
+      <select name="role" class="form-control">
+        <option 
+        th:each = "role : ${rolesList}"
+        th:text="${role}"
+       
+        />
+
+      </select>
+    </div>
       <b>Department Id:</b>
       <input type="number" th:field="*{departmentId}" class="form-control "  required="required">
       <b>Employee Photo:</b>
