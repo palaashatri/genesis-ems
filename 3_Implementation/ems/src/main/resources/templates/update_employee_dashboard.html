@@ -94,7 +94,7 @@
 				method="POST" enctype="multipart/form-data">
     
     <!-- Add hidden form field to handle update -->
-    <div><b>Employee Id:</b>
+    <div style="pointer-events: none;"><b>Employee Id:</b>
       <input type="number" th:field="*{empId}"
      placeholder="Id" class="form-control "></div>
     <div> <b>First Name:</b>
@@ -109,14 +109,16 @@
       <input type="text" th:field="*{userName}" class="form-control ">
       </div>
       
-      <div>
+      <!-- <div>
         <b>Password:</b>
-      <input type="text" th:field="*{password}" class="form-control " disabled>
-      </div>
+      <input type="text" th:field="*{password}" class="form-control " >
+      </div> -->
+      <div style="pointer-events: none;">
       <b>Date Of Joining:</b>
       <input type="date" th:value="*{dateOfJoining}" th:field="*{dateOfJoining}" class="form-control ">
       <b>Gender:</b>
       <input type="text" th:field="*{gender}" class="form-control ">
+    </div>
       <b>Date of Birth:</b>
       <input type="date" th:value="*{dateOfBirth}"  th:field="*{dateOfBirth}" class="form-control">
       <b>Role:</b>
