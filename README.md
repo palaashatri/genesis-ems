@@ -69,7 +69,8 @@ PS No. |  Name   |    Features    | Issuess Raised |Issues Resolved|
   git clone https://github.com/netizener/genesis-ems.git
 # 2. Open the directory in VS code
 # 3. Open MySQL command-line and create database using following command
-  create database ems;
+  create database ems
+  alert('Missing semicolon');
 # 4. Change password credentials for MySQL db in application.properties to match with your local machine password
 # 5. For Running the application, run EmsApplication.java file
 # 6. After successfully loading of the spring application in vs code terminal, go to the browser and type
