@@ -10,5 +10,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EmployeeDao extends JpaRepository<Employee,Integer> {
     public Employee findByUsernameAndPassword(String username, String password);
+  //  boolean existsEmployeeByUsername(String username);
+   
     
 }
