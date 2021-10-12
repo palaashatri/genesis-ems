@@ -379,7 +379,7 @@ public String updateEmpDashboard(@PathVariable ( value = "id") int id, Model mod
 	public String saveAttendanceDashboard(@ModelAttribute("attendance") Attendance attendance)  {
 	  //save attendance to db  
 	  Attendance savedAttendance= attendance_service.insertAttendance(attendance);
-	  return "redirect:/admin/attendance/new";
+	  return "redirect:/employee/"+savedAttendance.getEmpId()+"/regularise";
 	}
 
 
