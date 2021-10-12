@@ -375,6 +375,12 @@ public String updateEmpDashboard(@PathVariable ( value = "id") int id, Model mod
 	}
 
 
+	@GetMapping("/employee/{id}/attendance")
+	public String findAttendanceByEmpId(@PathVariable(value="id") int id, Model model){
+		
+		return "";
+	}
+
 	@PostMapping("/saveAttendanceDashboard")
 	public String saveAttendanceDashboard(@ModelAttribute("attendance") Attendance attendance)  {
 	  //save attendance to db  
