@@ -53,12 +53,6 @@ PS No. |  Name   |    Features    | Issuess Raised |Issues Resolved|No of Test C
 `99004936` | Shubham Phansekar  | - | 0   | 0  | 00   | 00
 
 
-| No |Feature  |
-|--|--|
-| SC1 |Description|
-| SC2 |Description|
-
-
 
 
 ## Pre-requisites:
@@ -66,21 +60,19 @@ PS No. |  Name   |    Features    | Issuess Raised |Issues Resolved|No of Test C
 # 1. Download & Install Java 11
 # 2. Download & Install VS code with STS extension
 # 3. Download & Install MySQL 8.0.* 
-
-
-
 ```    
 
 ## How to run:
 ```sh
-# 1. Change location to the source_code directory  
-  cd source_code/
-# 2. For Running the main.py file in source_code directory
-  python3 main.py
-# 3. For Running the test_all.py file source_code directory
-  python3 -m pytest
-# 4. For Running the pytest verbose command in source_code directory
-  py.test -v  
+# 1. Clone the repository using VS code 
+  git clone https://github.com/netizener/genesis-ems.git
+# 2. Open the directory in VS code
+# 3. Open MySQL command-line and create database using following command
+  create database ems
+# 4. Change password credentials for MySQL db in application.properties
+# 5. For Running the application run EmsApplication.java 
+# 6. After successfully loading of the spring application in vs code terminal, go to the browser and type
+  localhost:8989  
 ```    
 
 
