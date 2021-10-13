@@ -121,6 +121,9 @@
    <td th:text="${attendance.outTime}"></td>
    <td th:text="${attendance.status}"></td>
    <td> <span  th:switch="${attendance.status}">
+    
+
+
     <span th:case="'Pending'"><a class="btn btn-success" th:href="@{/admin/attendance/{id}/accept(id=${attendance.attId})}">Accept</a><a class="btn btn-danger" th:href="@{/admin/attendance/{id}/reject(id=${attendance.attId})}">Reject</a></span>
     
 
