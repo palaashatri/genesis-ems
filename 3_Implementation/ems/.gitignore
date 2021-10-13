@@ -33,4 +33,4 @@ build/
 .vscode/
 
 ### employee-photos ###
-./employee-photos/*
+employee-photos/*
