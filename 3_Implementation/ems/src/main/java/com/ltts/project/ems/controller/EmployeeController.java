@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
-
+import org.springframework.http.ResponseEntity;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
 
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -19,6 +20,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.*;
+
+import com.ltts.project.ems.dao.AttendanceDao;
 import com.ltts.project.ems.model.Attendance;
 import com.ltts.project.ems.model.Employee;
 import com.ltts.project.ems.service.AttendanceDaoService;
@@ -46,7 +49,11 @@ public class EmployeeController {
 	AttendanceDaoService attendance_service;
 	@Autowired
 	EmployeeService employeeService;
-	
+	@Autowired
+	AttendanceDao ad;
+
+
+
 	// =========admin routes=============
 
 	// show all employees
@@ -377,9 +384,14 @@ public String updateEmpDashboard(@PathVariable ( value = "id") int id, Model mod
 
 	@GetMapping("/employee/{id}/attendance")
 	public String findAttendanceByEmpId(@PathVariable(value="id") int id, Model model){
-		
-		return "";
+		List<Attendance> attendances=ad.findAttendanceByEmpId(id);
+		model.addAttribute("attendances", attendances);
+		return "viewAllRequests";
 	}
+
+
+
+
 
 	@PostMapping("/saveAttendanceDashboard")
 	public String saveAttendanceDashboard(@ModelAttribute("attendance") Attendance attendance)  {
