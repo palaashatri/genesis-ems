@@ -57,6 +57,9 @@
 					Regularise Attendance 
 				  </a>
 				</li>
+        <li class="nav-item">
+          <a class="nav-link text-light" th:href="@{/employee/{id}/attendance(id=${employee.empId})}">View All Attendance</a>
+        </li>
 				<li class="nav-item">
 				  <a class="nav-link text-light" href="/logout">
 					<span data-feather="layers"></span>
@@ -94,42 +97,54 @@
 				method="POST" enctype="multipart/form-data">
     
     <!-- Add hidden form field to handle update -->
-    <div><b>Employee Id:</b>
+    <div style="pointer-events: none;"><b>Employee Id:</b>
       <input type="number" th:field="*{empId}"
-     placeholder="Id" class="form-control "></div>
+     placeholder="Id" class="form-control " ></div>
     <div> <b>First Name:</b>
-      <input type="text" th:field="*{firstName}" class="form-control "></div>
+      <input type="text" th:field="*{firstName}" class="form-control " required="required" ></div>
      
         <div>
           <b>Last Name:</b>
-      <input type="text" th:field="*{lastName}" class="form-control ">
+      <input type="text" th:field="*{lastName}" class="form-control " required="required">
         </div>
-      <div>
+      <div style="pointer-events: none;">
         <b>Username:</b>
-      <input type="text" th:field="*{userName}" class="form-control ">
+      <input type="text" th:field="*{userName}" class="form-control "  required="required">
       </div>
       
-      <div>
+      <!-- <div>
         <b>Password:</b>
-      <input type="text" th:field="*{password}" class="form-control " disabled>
-      </div>
+      <input type="text" th:field="*{password}" class="form-control " >
+      </div> -->
+      <div style="pointer-events: none;">
       <b>Date Of Joining:</b>
       <input type="date" th:value="*{dateOfJoining}" th:field="*{dateOfJoining}" class="form-control ">
       <b>Gender:</b>
       <input type="text" th:field="*{gender}" class="form-control ">
+    </div>
       <b>Date of Birth:</b>
-      <input type="date" th:value="*{dateOfBirth}"  th:field="*{dateOfBirth}" class="form-control">
+      <input type="date" th:value="*{dateOfBirth}"  th:field="*{dateOfBirth}" class="form-control" required="required">
+      <div>
       <b>Role:</b>
-      <input type="text" th:field="*{role}" class="form-control ">
+      <!-- <input type="text" th:field="*{role}" class="form-control " required="required"> -->
+      <select name="role" class="form-control">
+        <option 
+        th:each = "role : ${rolesList}"
+        th:text="${role}"
+       
+        />
+
+      </select>
+    </div>
       <b>Department Id:</b>
-      <input type="number" th:field="*{departmentId}" class="form-control ">
+      <input type="number" th:field="*{departmentId}" class="form-control "  required="required">
       <b>Employee Photo:</b>
       
       <input type="file" name="fileImage" id="fileImage" accept="image/png, image/jpeg" />
 
       <img id="thumbnail"  class="rounded-circle" width="100" height="100" th:src="@{${employee.photoImagePath}}" alt="Photo Preview"/>
 
-    
+    <hr>
       <button type="submit" class="btn btn-info col-2"> Update Your Details</button>
   </form>
 	

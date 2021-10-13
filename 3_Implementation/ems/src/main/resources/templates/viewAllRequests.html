@@ -34,7 +34,7 @@
           </div>
           <ul class="nav flex-column pt-3">
             <li class="nav-item">
-              <a class="nav-link text-light" th:href="@{/employee/{id}/dashboard(id = ${employee.empId})}">
+              <a class="nav-link text-light" th:href="@{/employee/{id}/dashboard(id = ${attendances[0].empId})}">
                 <span data-feather="home"></span>
                 Dashboard
               </a>
@@ -47,22 +47,22 @@
               </a>
             </li>
             -->
-
+  
             <li class="nav-item">
-              <a class="nav-link text-light" th:href="@{/employee/{id}/regularise(id=${employee.empId})}">
+              <a class="nav-link text-light" th:href="@{/employee/{id}/regularise(id=${attendances[0].empId})}">
                 <span data-feather="shopping-cart"></span>
                 Regularise Attendance 
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" th:href="@{/employee/{id}/attendance(id=${employee.empId})}">View All Attendance</a>
+              <a class="nav-link text-light" th:href="@{/employee/{id}/attendance(id=${attendances[0].empId})}">View All Attendance</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-light" href="/logout">
                 <span data-feather="layers"></span>
                 Log Out
               </a>
-
+  
                
             </li>
           </ul>
@@ -83,39 +83,46 @@
               border-bottom
             "
           >
-            <h1 class="h3">Welcome USER!</h1>
+            <h1 class="h3">View All Requests</h1>
           </div>
           <!-- end: Title -->
           <div class="card">
             <div class="card-body">
-              <form action="#" th:action = "@{/saveAttendanceDashboard}" th:object="${attendance}" method="POST">
-               
-
-                <div class="form-group">
-                  <label class="text-muted pr-3" for="employee-id"
-                    >Employee Id:</label
-                  >
-                  <input type="number" th:field="*{empId}" id="employee-id"  required="required"/>
-                </div>
-        
-                <!-- <label for = "attendance-date">Date : </label>
-                <input type="date" id="attendance-date">
-                <br> -->
-                
-                <div class="form-group">
-                  <label class="text-muted pr-3" for="in-time"
-                    >In Time</label
-                  >
-                  <input type="datetime-local"  id="in-time" th:field="*{inTime}" required="required"/>
-                </div>
-                <div class="form-group">
-                  <label class="text-muted pr-3" for="out-time"
-                    >Out Time</label
-                  >
-                  <input type="datetime-local" id="out-time" th:field="*{outTime}" required="required" />
-                </div>
-                <input type="submit" class="btn btn-info" value="Add Regularization Request" onClick="myFun()">
-            </form>
+                <table class="table table-striped  table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Attendance Id</th>
+                        <th scope="col">Employee Id</th>
+                        <th scope="col">In-time</th>
+                        <th scope="col">Out-Time</th>
+                        <th scope="col">Status</th>
+                        
+                        
+                        
+                       
+                      </tr>
+                    </thead>
+                    <tbody>
+                     <tr th:each="attendance: ${attendances}">
+                     <td th:text="${attendance.attId}"></td>
+                     <td th:text="${attendance.empId}"></td>
+                        <td th:text="${attendance.inTime}"></td>
+                     <td th:text="${attendance.outTime}"></td>
+                     <td th:text="${attendance.status}"></td>
+                     
+                     
+                        
+                         
+                  
+                  
+                  </tr>
+                  
+             
+                  
+                    </tbody>
+    
+                      </table>
+                      <hr><a href="#" th:href="@{/employee/{id}/dashboard(id = ${attendances[0].empId})}">Back to Dashboard</a>
 
             
           <!-- endL Form -->
@@ -142,11 +149,5 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
-    <script>
-      function myFun()
-      {
-        alert("Sent for regularisation.");
-      }
-    </script>
   </body>
 </html>

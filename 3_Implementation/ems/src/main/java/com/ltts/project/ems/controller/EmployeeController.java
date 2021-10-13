@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
-
-
+import org.springframework.http.ResponseEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
 
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -19,6 +20,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.*;
+
+
+import com.ltts.project.ems.dao.AttendanceDao;
 import com.ltts.project.ems.model.Attendance;
 import com.ltts.project.ems.model.Employee;
 import com.ltts.project.ems.service.AttendanceDaoService;
@@ -38,6 +42,8 @@ public class EmployeeController {
 		rolesList.add("CONSULTANT");
 		rolesList.add("HR");
 		rolesList.add("EXECUTIVE");
+		rolesList.add("ADMIN");
+
 	}
 
 		
@@ -45,7 +51,11 @@ public class EmployeeController {
 	AttendanceDaoService attendance_service;
 	@Autowired
 	EmployeeService employeeService;
-	
+	@Autowired
+	AttendanceDao ad;
+
+
+
 	// =========admin routes=============
 
 	// show all employees
@@ -56,16 +66,24 @@ public class EmployeeController {
 			// shows employee repository. distributes employees into 2 tables > active and inactive
     		model.addAttribute("listEmployees",employeeService.getAllEmployees());
     		System.out.print(employeeService.getAllEmployees());
-			return "employees";
+			return findPaginated(1, model);
     	}
+
+		// @GetMapping("/")
+		// public String viewHomePage(Model model) {
+		//  return findPaginated(1, model);  
+		// }
+
 
 	// create new employee
      @GetMapping("/admin/employees/new")
 	 public String showNewEmployeeForm(Model model) {
 		 // create new employee
 		// create model attribute to bind form data
+
+		Employee employee = new Employee();
 		model.addAttribute("rolesList",rolesList);
-		model.addAttribute("employee", new Employee());
+		model.addAttribute("employee", employee);
 		return "new_employee";
 	}
 
@@ -102,6 +120,8 @@ public class EmployeeController {
 	public String employeeProfile(@PathVariable(value = "id")int id, Model model){
 		Employee employee = employeeService.getEmployeeById(id);
 		model.addAttribute("employee", employee);
+		
+		
 		return "employee_profile";
 	}
 
@@ -113,6 +133,7 @@ public class EmployeeController {
 		Employee employee = employeeService.getEmployeeById(id);
 		
 		
+		model.addAttribute("rolesList",rolesList);
 		model.addAttribute("employee", employee);
 		return "update_employee";
 	}
@@ -258,6 +279,7 @@ public String updateEmpDashboard(@PathVariable ( value = "id") int id, Model mod
 	Employee employee = employeeService.getEmployeeById(id);
 	
 	
+	model.addAttribute("rolesList",rolesList);
 	model.addAttribute("employee", employee);
 	return "update_employee_dashboard";
 }
@@ -363,11 +385,22 @@ public String updateEmpDashboard(@PathVariable ( value = "id") int id, Model mod
 	}
 
 
+	@GetMapping("/employee/{id}/attendance")
+	public String findAttendanceByEmpId(@PathVariable(value="id") int id, Model model){
+		List<Attendance> attendances=ad.findAttendanceByEmpId(id);
+		model.addAttribute("attendances", attendances);
+		return "viewAllRequests";
+	}
+
+
+
+
+
 	@PostMapping("/saveAttendanceDashboard")
 	public String saveAttendanceDashboard(@ModelAttribute("attendance") Attendance attendance)  {
 	  //save attendance to db  
 	  Attendance savedAttendance= attendance_service.insertAttendance(attendance);
-	  return "redirect:/admin/attendance/new";
+	  return "redirect:/employee/"+savedAttendance.getEmpId()+"/attendance";
 	}
 
 
@@ -382,6 +415,21 @@ public String updateEmpDashboard(@PathVariable ( value = "id") int id, Model mod
 	// 	return "redirect:/employees";
 	// }
 	
+	//Pagination
+
+	@GetMapping("/page/{pageNo}")
+public String findPaginated(@PathVariable(value = "pageNo") int pageNo, Model model) {
+    int pageSize = 5;
+
+    Page < Employee > page = employeeService.findPaginated(pageNo, pageSize);
+    List < Employee > listEmployees = page.getContent();
+
+    model.addAttribute("currentPage", pageNo);
+    model.addAttribute("totalPages", page.getTotalPages());
+    model.addAttribute("totalItems", page.getTotalElements());
+    model.addAttribute("listEmployees", listEmployees);
+    return "employees";
+}
 
 
     }

@@ -36,26 +36,26 @@ public class EmsController {
 	if (theEmployee == null) {
 				
 
-				return new ModelAndView("Invalid_user");
+				return new ModelAndView("loginPage");
 			} else if(theEmployee.getRole().equals("ADMIN")) {
 
-				return new ModelAndView("admin");
+				return new ModelAndView("redirect:/admin");
 
 			}
 			else if(theEmployee.getRole().equals("admin")) {
 
-				return new ModelAndView("admin");
+				return new ModelAndView("redirect:/admin");
 
 			}
 
 			else if(theEmployee.getRole().equals("Admin")) {
 
-				return new ModelAndView("admin");
+				return new ModelAndView("redirect:/admin");
 
 			}
 			else
 			{   
-				return new ModelAndView("employee_profile");
+				return new ModelAndView("redirect:/employee/"+theEmployee.getEmpId()+"/dashboard");
 			}
 
 		}
