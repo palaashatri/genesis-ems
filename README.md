@@ -59,9 +59,9 @@ PS No. |  Name   |    Features    | Issuess Raised |Issues Resolved|
 
 ## Pre-requisites:
 
- 1. Download & Install Java 11
- 2. Download & Install Spring Tool Suite
- 3. Download & Install MySQL 8.0.* 
+ 1. Download & Install Java 11 : [Download](https://www.oracle.com/java/technologies/downloads/)
+ 2. Download & Install Spring Tool Suite : [Download](https://spring.io/tools)
+ 3. Download & Install MySQL 8.0.* : [Download](https://dev.mysql.com/downloads/installer/)
   
 
 ## How to run:
