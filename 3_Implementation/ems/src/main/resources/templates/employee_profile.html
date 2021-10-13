@@ -22,14 +22,7 @@
       html,body{
         height:100%;
       }
-      .card {
-        margin: 0 auto; /* Added */
-        float: none; /* Added */
-        margin-bottom: 10px; /* Added */
-}
     </style>
-
-
   </head>
   
  
@@ -110,69 +103,169 @@
               border-bottom
             "
           >
-            <h1 class="h3" > Employee Details</h1>
+            <h1 class="h3"> Employee Details</h1>
           </div>
           <!-- end: Title -->
           <!-- start: Form -->
-          
-              <div class="card" style="width: 22rem;">
-                <div class="card-body">
-                   
-                <img class="rounded-circle" th:src="@{${employee.photoImagePath}}" style="width:100%;height:100%"/>
-                <hr>
-                <div class="form-group">
-                  <b>Employee Id: </b> <span th:text=${employee.empId}></span>
+          <div class="card">
+            <div class="card-body">
+              <form>
+              <div class="form-group">
+               
+                <img class="rounded-circle" th:src="@{${employee.photoImagePath}}" style="width:100px;height:100px"/>
                 </div>
+                <!-- Employee Id -->
+                <div class="form-group">
+               
+                 <b>Employee id</b> 
+                 <input
+                 th:value=${employee.empId}
+                 class="form-control"
+                 id="employeeId"
+                 disabled
+                 
+                 
+               />
+               
+                </div>
+                
+                <!-- Department Id -->
+                <div class="form-group">
+                
+                <b>Department Id</b>
+                <input
+                th:value=${employee.departmentId}
+                class="form-control"
+                id="departmentId"
+                disabled
+            
+              /> 
+                </div>
+                
+             
                 <!-- FirstName -->
                 <div class="form-group">
-                  <b>First Name: </b> <span th:text=${employee.firstName}></span>
-                  
-                  </div>
-                <!-- LastName -->
-                <div class="form-group">
-                  <b>Last Name : </b> <span th:text=${employee.lastName}></span>
-                  
-                  </div>
-                  <!-- Gender -->
-                  <div class="form-group">
-                    <b>Gender :</b> <span th:text=${employee.gender}></span>
-                    
-                    </div>
-                    <div class="form-group">
-                      <b>Date of Birth : </b> <span th:text=${employee.dateOfBirth}></span>
-                      
-                      </div> 
-                    <div class="form-group">
-                      <b>User Name : </b> <span th:text=${employee.userName}></span>
-                      
-                      </div>
-  
-                      <div class="form-group">
-                        <b>Date Of Joining :</b> <span th:text=${employee.dateOfJoining}></span>
-                        
-                        </div>
-  
-                        <div class="form-group">
-                          <b>Works as an :</b> <span th:text=${employee.role}></span>
-                          
-                          </div>
-                          <div class="form-group">
-                            <b>Department Id: </b> <span th:text=${employee.departmentId}></span>
-                          </div>
-                          <div class="form-group">
-                            <b>Is Active? </b> <span th:text=${employee.isActive}></span>
-                            
-                            </div>
-                            <a th:href="@{/admin/employees/{id}/update(id = ${employee.empId})}">Update Employee Details</a>
-             
-                  </div>
+                
+                <b>First Name</b> 
+                <input
+                th:value=${employee.firstName}
+                class="form-control"
+                id="firstname"
+                disabled
+            
+              /> 
               
                 </div>
-              
+                <!-- LastName -->
+                <div class="form-group">
+                <b>Last Name</b> 
+                <input
+                th:value=${employee.lastName}
+                class="form-control"
+                id="lastName"
+                disabled
             
+              /> 
+              
+                </div>
+                 <!-- UserName -->
+                <div class="form-group">
+                <b>User Name </b>
+                <input
+                type="text"
+                th:value=${employee.userName}
+                class="form-control"
+                
+                disabled
+            
+              />  
+                
+                </div>
+<!--<div class="form-group">
+                  <b>User Name </b>: <span th:text=${employee.userName}></span>
+                  
+                  </div>-->
+                
+  
 
-                 
+
                
+                <!-- Gender -->
+                <div class="form-group">
+                <b>Gender </b>
+                <input
+                th:value=${employee.gender}
+                class="form-control"
+                id="gender"
+                disabled
+            
+              /> 
+                
+                
+               </div>
+                <!-- DOB -->
+                <div class="form-group">
+                <b>Date Of Birth </b>
+                <input
+                type="date"
+                th:value=${employee.dateOfBirth}
+                class="form-control"
+                id="dateOfBirth"
+                disabled
+            
+              /> 
+              
+                </div>  
+               
+
+                <!-- Date of Joining -->
+              
+
+                <div class="form-group">
+               <b>Date Of Joining</b> 
+               <input
+               type="date"
+               th:value=${employee.dateOfJoining}
+               class="form-control"
+               id="dateOfJoining"
+               disabled
+           
+             />  
+                </div>  
+
+                <!-- Role -->
+                <div class="form-group">
+                <b>Role</b> 
+                <input
+                th:value=${employee.role}
+                class="form-control"
+                id="role"
+                disabled
+            
+              /> 
+                </div>
+
+              
+
+                <!-- Active -->
+                <div class="form-group">
+         
+                 <b>Is Active?</b> 
+                 <input
+                 
+                 th:value=${employee.isActive}
+                 class="form-control"
+                 id="status"
+                 disabled
+             
+               /> 
+                
+                </div>
+                <a th:href="@{/admin/employees/{id}/update(id = ${employee.empId})}">Update Employee Details</a>
+             
+                
+              </form>
+            </div>
           </div>
           <!-- endL Form -->
         </main>
@@ -199,3 +292,13 @@
     ></script>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
