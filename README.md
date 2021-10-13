@@ -5,6 +5,7 @@
 
 
 
+![Banner](https://github.com/netizener/genesis-ems/blob/main/5_ImagesAndVideos/images/EMS_Banner.png)
 
 
 
