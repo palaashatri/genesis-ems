@@ -70,7 +70,7 @@ PS No. |  Name   |    Features    | Issuess Raised |Issues Resolved|
   ```
   git clone https://github.com/netizener/genesis-ems.git
   ```
- 2. Open the directory in Spring Tool Suite
+ 2. Open the `3_Implementation/ems`directory as project in Spring Tool Suite
  3. Open MySQL command-line and create database using following command
   ```
   create database ems;
@@ -82,7 +82,7 @@ spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/ems
 spring.datasource.username=
 spring.datasource.password=
  ```
- 5. For Running the application, run `EmsApplication.java` file
+ 5. For Running the application, run using the `EmsApplication.java` file, or run directly through Spring Tool Suite
  6. After the web application starts successfully, go to [localhost:8989](http://localhost:8989) in your browser to view the application
 
 
