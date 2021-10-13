@@ -40,19 +40,22 @@
               </a>
             </li>
            
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link text-light"  th:href="@{/employee/{id}/update(id = ${employee.empId})}" href="#">
                 <span data-feather="file"></span>
                 Update Profile
               </a>
             </li>
-           
+            -->
 
             <li class="nav-item">
               <a class="nav-link text-light" th:href="@{/employee/{id}/regularise(id=${employee.empId})}">
                 <span data-feather="shopping-cart"></span>
                 Regularise Attendance 
               </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" th:href="@{/employee/{id}/attendance(id=${employee.empId})}">View All Attendance</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-light" href="/logout">
