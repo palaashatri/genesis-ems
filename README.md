@@ -58,25 +58,33 @@ PS No. |  Name   |    Features    | Issuess Raised |Issues Resolved|
 
 
 ## Pre-requisites:
-```sh
-# 1. Download & Install Java 11
-# 2. Download & Install VS code with STS extension
-# 3. Download & Install MySQL 8.0.* 
-```    
+
+ 1. Download & Install Java 11
+ 2. Download & Install Spring Tool Suite
+ 3. Download & Install MySQL 8.0.* 
+  
 
 ## How to run:
-```sh
-# 1. Clone the repository using VS code 
-  git clone https://github.com/netizener/genesis-ems.git
-# 2. Open the directory in VS code
-# 3. Open MySQL command-line and create database using following command
-  create database ems;
 
-# 4. Change password credentials for MySQL db in application.properties to match with your local machine password
-# 5. For Running the application, run EmsApplication.java file
-# 6. After successfully loading of the spring application in vs code terminal, go to the browser and type
-  localhost:8989  
-```    
+ 1. Clone the repository
+  ```
+  git clone https://github.com/netizener/genesis-ems.git
+  ```
+ 2. Open the directory in Spring Tool Suite
+ 3. Open MySQL command-line and create database using following command
+  ```
+  create database ems;
+  ```
+
+ 4. Change the following fields for MySQL db in `application.properties` to match with your local machine configuration :
+ ```
+spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/ems
+spring.datasource.username=
+spring.datasource.password=
+ ```
+ 5. For Running the application, run `EmsApplication.java` file
+ 6. After the web application starts successfully, go to [localhost:8989](http://localhost:8989) in your browser to view the application
+
 
 
 
