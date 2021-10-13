@@ -55,7 +55,7 @@ public class EmsController {
 			}
 			else
 			{   
-				return new ModelAndView("employee_profile");
+				return new ModelAndView("redirect:/employee/"+theEmployee.getEmpId()+"/dashboard");
 			}
 
 		}
