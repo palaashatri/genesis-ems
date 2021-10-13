@@ -21,6 +21,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.*;
 
+
 import com.ltts.project.ems.dao.AttendanceDao;
 import com.ltts.project.ems.model.Attendance;
 import com.ltts.project.ems.model.Employee;
@@ -42,6 +43,7 @@ public class EmployeeController {
 		rolesList.add("HR");
 		rolesList.add("EXECUTIVE");
 		rolesList.add("ADMIN");
+
 	}
 
 		
@@ -78,6 +80,7 @@ public class EmployeeController {
 	 public String showNewEmployeeForm(Model model) {
 		 // create new employee
 		// create model attribute to bind form data
+
 		Employee employee = new Employee();
 		model.addAttribute("rolesList",rolesList);
 		model.addAttribute("employee", employee);
