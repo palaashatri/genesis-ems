@@ -114,7 +114,7 @@
                   >
                   <input type="datetime-local" id="out-time" th:field="*{outTime}" required="required" />
                 </div>
-                <input type="submit" class="btn btn-info" value="Add Regularization Request">
+                <input type="submit" class="btn btn-info" value="Add Regularization Request" onClick="myFun()">
             </form>
 
             
@@ -142,5 +142,11 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
+    <script>
+      function myFun()
+      {
+        alert("Sent for regularisation.");
+      }
+    </script>
   </body>
 </html>
