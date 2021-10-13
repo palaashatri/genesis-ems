@@ -109,6 +109,12 @@
                   Add Employee
                 </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" th:href="@{/admin/employees}" href="#">
+                  <span data-feather="shopping-cart"></span>
+                  View All Employees
+                </a>
+              </li>
               <!-- <li class="nav-item">
                 <a class="nav-link text-light" href="/pages/loginPage.html">
                   <span data-feather="file"></span>
@@ -289,7 +295,7 @@
                 
               </form>
 			  <hr>
-			  <a th:href = "@{/}"> Back to Employee List</a>
+			  <a th:href = "@{/admin/employees}"> Back to Employee List</a>
             </div>
           </div>
           <!-- endL Form -->
