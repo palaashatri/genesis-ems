@@ -49,10 +49,10 @@ Folder             | Description
 ## Contributors List and Summary
 PS No. |  Name   |    Features    | Issuess Raised |Issues Resolved|
 ---------|-------------|----------------|----------------|---------------
-`99004924` | Supriya Yadav  | - | 0   | 0  
-`99004930` | Palaash Atri  | - | 0   | 0  
-`99004934` | Mayank Gupta  | - | 0   | 0  
-`99004936` | Shubham Phansekar  | - | 0   | 0  
+`99004924` | Supriya Yadav  | Admin | 0   | 0  
+`99004930` | Palaash Atri  | Employee | 0   | 0  
+`99004934` | Mayank Gupta  | User Authentication/Authorization | 0   | 0  
+`99004936` | Shubham Phansekar  | Database, Attendance | 0   | 0  
 
 
 
