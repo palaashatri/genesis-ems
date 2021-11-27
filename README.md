@@ -66,10 +66,7 @@ PS No. |  Name   |    Features    | Issuess Raised |Issues Resolved|
 
 ## How to run:
 
- 1. Clone the repository
-  ```
-  git clone https://github.com/netizener/genesis-ems.git
-  ```
+ 1. Clone this repository
  2. Open the `3_Implementation/ems`directory as project in Spring Tool Suite
  3. Open MySQL command-line and create database using following command
   ```
